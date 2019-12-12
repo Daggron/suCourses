@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 require('dotenv/config');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
 const fetchCourses = require('./server/workers/index');
 
 const URI = process.env.DB;
@@ -21,6 +23,7 @@ db.on('error',(err)=>{
 })
 
 app.use(express.json());
+app.use(cors());
 
 fetchCourses();
 

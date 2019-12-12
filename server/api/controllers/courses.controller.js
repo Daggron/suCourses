@@ -13,6 +13,30 @@ exports.all = async (req,res)=>{
     });
 }
 
+exports.id = async (req,res)=>{
+    const raw = await getAsync(req.params.id);
+    if(raw){
+        const course = await JSON.parse(raw);
+        res.json({
+            course
+        })
+    }
+    else{
+        Course.findById(req.params.id)
+        .select('_id title instructor Category Language Level url value description')
+        .exec()
+        .then(course=>{
+            setAsync(req.params.id , JSON.stringify(course));
+            res.json({
+                course
+            })
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
+}
+
 exports.post = async (req,res)=>{
     const course = new Course();
     course.title = req.body.title;
@@ -44,7 +68,6 @@ exports.post = async (req,res)=>{
 exports.search = async(req,res)=>{
     console.log(req.params.search)
     const raw = JSON.parse(await getAsync('courses'));
-    const data = [...raw];
     const  courses = raw.filter((eachCourse)=>{
         const title =  eachCourse.title.toLowerCase().replace(/\s/g,'');
         const instructor = eachCourse.instructor.toLowerCase().replace(/\s/g,'');
@@ -60,13 +83,8 @@ exports.search = async(req,res)=>{
         }
         return false;
     })
-    // console.log(courses);
     return res.json({
         data:courses
     })
     
 }
-
-function escapeRegex(text) {
-    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-};
