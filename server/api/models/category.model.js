@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-let Category = new mongoose.Schema({
+let categorySchema = new mongoose.Schema({
     title:{
         type:String
     },
@@ -8,6 +8,6 @@ let Category = new mongoose.Schema({
     }
 });
 
-let Category = mongoose.model('Category',Category);
+let Category = mongoose.model('Category',categorySchema);
 
 module.exports = Category;
