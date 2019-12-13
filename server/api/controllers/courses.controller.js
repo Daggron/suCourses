@@ -65,7 +65,7 @@ exports.post = async (req,res)=>{
     })
 }
 
-exports.search = async(req,res)=>{
+exports.search = async (req,res)=>{
     console.log(req.params.search)
     const raw = JSON.parse(await getAsync('courses'));
     const  courses = raw.filter((eachCourse)=>{
@@ -87,4 +87,19 @@ exports.search = async(req,res)=>{
         data:courses
     })
     
+}
+
+exports.categoryWise = async (req,res)=>{
+    const raw = await JSON.parse(await getAsync('courses'));
+    const courses = raw.filter(eachCourse => {
+        if(eachCourse.Category.toLowerCase().includes(req.params.category.toLowerCase())){
+            return true
+        }
+        else{
+            return false
+        }
+    });
+    res.json({
+        courses:courses
+    })
 }
