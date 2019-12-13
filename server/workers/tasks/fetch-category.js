@@ -7,6 +7,9 @@ const setAsync = promisify(client.set).bind(client);
 async function fetchCategory(){
     Category.find()
     .select('_id title icon')
+    .sort({
+        title:1
+    })
     .exec()
     .then(async (categories)=>{
         console.log(`fetched ${categories.length} categories`);

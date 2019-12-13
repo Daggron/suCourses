@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import Category from './category'
 
 export default function Categories() {
     const [categories , setCategories] = React.useState([]);
@@ -18,12 +19,11 @@ export default function Categories() {
             {
                categories.map(category=>{
                     return (
-                        <h1 key={category._id}>
-                            {category.title}
-                        </h1>
+                       <Category key={category._id} category={category} />
                     )
                 })
             }
+            
         </React.Fragment>
     )
 }
