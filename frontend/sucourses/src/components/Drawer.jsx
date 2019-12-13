@@ -13,6 +13,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import Fab from '@material-ui/core/Fab'
+import BookIcon from '@material-ui/icons/Book';
+
+
 
 
 
@@ -134,6 +137,14 @@ export default function PersistentDrawerLeft() {
             <Link to="/">
                 <Fab color="primary" variant="extended" aria-label="add">
                     <HomeIcon /> Home
+                </Fab>
+            </Link>
+        </div>
+
+        <div className={classes.buttons}>
+            <Link to="/courses">
+                <Fab color="primary" variant="extended" aria-label="add">
+                    <BookIcon /> Courses
                 </Fab>
             </Link>
         </div>

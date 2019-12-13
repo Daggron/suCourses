@@ -17,6 +17,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.7.14",
     "node-cron": "^2.0.3",
+    "query-string": "^6.9.0",
     "redis": "^2.8.0"
   },
   "devDependencies": {
