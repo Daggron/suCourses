@@ -3,6 +3,8 @@ import queryString from 'query-string';
 import axios from 'axios'
 import book from '../../book.gif';
 import Course from './course';
+import notfound from '../../404.gif';
+import { Typography } from '@material-ui/core';
 
 
 export default class Courses extends Component {
@@ -32,7 +34,20 @@ export default class Courses extends Component {
             return (
                 <React.Fragment>
                         <img src={book} alt="Loading" />
+                        <Typography style={{marginTop: 5}}variant="h6" component="h2" color="secondary">
+                                Please be patient while we are loading courses
+                        </Typography>
                 </React.Fragment>
+            )
+        }
+        else if(this.state.courses.length===0){
+            return (
+                <React.Fragment>
+                    <img src={notfound} alt="No course found" />
+                    <Typography style={{marginTop: 5}}variant="h6" component="h2" color="secondary">
+                                Sorry no course found . If you know a super course please feel free to add.
+                    </Typography>
+                </React.Fragment>   
             )
         }
         return (
