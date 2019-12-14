@@ -13,9 +13,10 @@ function App() {
         <Router>
            <Drawer />
             <Route exact path="/" component={Home}/>
+            <Route  path="/course"  component={Allcourses}/>
             <Route exact path="/category" component={Categories} />
             <Route path="/category/find" component={Courses} />
-            <Route exact path="/courses"  component={Allcourses}/>
+           
         </Router>
     </div>
   );

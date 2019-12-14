@@ -8,9 +8,29 @@ const setAsync = promisify(client.set).bind(client);
 exports.all = async (req,res)=>{
     const data = await  getAsync('courses');
     const courses = await JSON.parse(data);
-    return res.status(200).json({
-        courses:courses
-    });
+    if(courses.length!==0){
+        return res.status(200).json({
+            courses:courses
+        });
+    }
+    else{
+        Course.find({})
+        .select('_id title instructor Category Language Level url value description')
+        .sort({
+            title:1
+        })
+        .exec()
+        .then(async (res)=>{
+            const data =await JSON.stringify(res);
+            const success = await setAsync('courses',data);
+            return res.status(200).json({
+                courses:courses
+            });
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
 }
 
 exports.id = async (req,res)=>{

@@ -142,7 +142,7 @@ export default function PersistentDrawerLeft() {
         </div>
 
         <div className={classes.buttons}>
-            <Link to="/courses">
+            <Link to="/course">
                 <Fab color="primary" variant="extended" aria-label="add">
                     <BookIcon /> Courses
                 </Fab>
