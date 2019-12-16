@@ -17,7 +17,7 @@ import BookIcon from '@material-ui/icons/Book';
 import {Button } from '@material-ui/core';
 import CategoryIcon from '@material-ui/icons/Category';
 import SearchIcon from '@material-ui/icons/Search';
-import InputBase from '@material-ui/core/InputBase';
+import TextField from '@material-ui/core/TextField';
 
 
 
@@ -211,25 +211,26 @@ export default function PersistentDrawerLeft() {
             </Link>
         </div>
 
-        <div className={classes}>
-            <InputBase
+        <div className={classes.buttons}>
+            <TextField
               placeholder="Search…"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
+              variant="outlined"
               inputProps={{ 'aria-label': 'search' }}
               onChange={handleChange}
             />
             {search.length!==0 ?(
               <Link to={`/category/find/?category=${search}`}>
-                <Button onClick={handleSearch}> 
+                <Button variant="contained" color="primary" onClick={handleSearch} style={{marginTop:10}}> 
                   <SearchIcon/>
                 </Button>
               </Link>
             )
             :(
-              <Button onClick={handleSearch}> 
+              <Button variant="contained" color="primary" onClick={handleSearch} style={{marginTop:10}}> 
                   <SearchIcon/>
               </Button>
             )
