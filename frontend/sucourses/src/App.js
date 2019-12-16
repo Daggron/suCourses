@@ -3,12 +3,27 @@ import { BrowserRouter as Router , Route } from 'react-router-dom';
 import './App.css';
 import Drawer from './components/Drawer';
 import Home from './components/home';
-import Categories from './components/category/categories';
-import Courses from './components/courses/courses';
-import Allcourses from './components/courses/all-courses';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { ThemeProvider } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
+
+import Loadable from 'react-loadable';
+import Loading from './components/Loading';
+
+const CategoriesComponent = Loadable({
+  loader : ()=> import('./components/category/categories'),
+  loading : Loading,
+});
+
+const CoursesComponent = Loadable({
+  loader : ()=> import('./components/courses/all-courses'),
+  loading : Loading
+})
+
+const categoriesFind = Loadable({
+  loader : ()=> import('./components/courses/courses'),
+  loading : Loading
+})
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: white)');
@@ -29,9 +44,9 @@ function App() {
           <Router>
             <Drawer />
               <Route exact path="/" component={Home}/>
-              <Route  path="/course"  component={Allcourses}/>
-              <Route exact path="/category" component={Categories} />
-              <Route path="/category/find" component={Courses} />
+              <Route  path="/course"  component={CoursesComponent}/>
+              <Route exact path="/category" component={CategoriesComponent} />
+              <Route path="/category/find" component={categoriesFind} />
             
           </Router>
       </div>
