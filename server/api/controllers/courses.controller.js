@@ -76,7 +76,7 @@ exports.post = async (req,res)=>{
              data = [...courses];
         }
         data.push(course);
-        const nexdata = JSON.stringify(data);
+        const nexdata = await JSON.stringify(data);
         const success = await setAsync('courses',nexdata);
          return res.json({
              data,
