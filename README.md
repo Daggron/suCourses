@@ -3,6 +3,7 @@ A webapp to seach all the courses free and affordable for programmers to learn s
 
 ##### This app is build to provide all the courses that helps the user to learn the technology he wants
 
+#### This Project is Under Development and will be ready soon. 
 
 ###### The website is live at http://sucourses.herokuapp.com/
 
