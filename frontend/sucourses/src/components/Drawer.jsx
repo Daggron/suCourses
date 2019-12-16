@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme , fade } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -10,10 +10,15 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import Fab from '@material-ui/core/Fab'
 import BookIcon from '@material-ui/icons/Book';
+import {Button } from '@material-ui/core';
+import CategoryIcon from '@material-ui/icons/Category';
+import SearchIcon from '@material-ui/icons/Search';
+import InputBase from '@material-ui/core/InputBase';
+
 
 
 
@@ -79,12 +84,50 @@ const useStyles = makeStyles(theme => ({
     }),
     marginLeft: 0,
   },
+  search: {
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.25),
+    },
+    marginLeft: "auto",
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 'auto',
+    },
+  },
+  searchIcon: {
+    width: theme.spacing(7),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 1
+  },
+  inputRoot: {
+    color: 'inherit',
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 7),
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 120,
+      '&:focus': {
+        width: 200,
+      },
+    },
+  }
 }));
 
 export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [search , setSearch] = React.useState("");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -93,6 +136,17 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const handleChange = (e) =>{
+    console.log(e.target.value)
+    setSearch(e.target.value)
+  }
+
+  const handleSearch = () =>{
+    console.log(search)
+    return  <Redirect to={{pathname:'/category'}} />
+    
+  }
 
   return (
     <div className={classes.root}>
@@ -143,7 +197,7 @@ export default function PersistentDrawerLeft() {
 
         <div className={classes.buttons}>
             <Link to="/course">
-                <Fab color="primary" variant="extended" aria-label="add">
+                <Fab color="primary" variant="extended" aria-label="Courses">
                     <BookIcon /> Courses
                 </Fab>
             </Link>
@@ -151,11 +205,28 @@ export default function PersistentDrawerLeft() {
 
         <div className={classes.buttons}>
             <Link to="/category">
-                <Fab color="primary" variant="extended" aria-label="add">
-                    <HomeIcon /> Category
+                <Fab color="primary" variant="extended" aria-label="Category">
+                    <CategoryIcon /> Category
                 </Fab>
             </Link>
         </div>
+
+        <div className={classes}>
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+              onChange={handleChange}
+            />
+            <Link to={`/category/find/?category=${search}`}>
+              <Button onClick={handleSearch}> 
+                <SearchIcon/>
+              </Button>
+            </Link>
+          </div>
 
       </Drawer>
       <main

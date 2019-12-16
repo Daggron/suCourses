@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import queryString from 'query-string';
 import axios from 'axios'
 import book from '../../book.gif';
@@ -7,30 +7,35 @@ import notfound from '../../404.gif';
 import { Typography } from '@material-ui/core';
 
 
-export default class Courses extends Component {
+export default function Courses(props){
     
-   constructor(){
-       super();
-       this.state={
-           courses : [],
-           loaded :  false
-       }
-        
-   }
-    componentDidMount(){
-        const q = queryString.parse(this.props.location.search);
-       const category = q.category;
-       axios.get(`http://localhost:5000/courses/category/${category}`)
+
+    const [category , setCategory] = React.useState(props.location.search);
+    const [courses , setCourses ] = React.useState([]);
+    const [loaded , setLoaded ] = React.useState(false);
+  
+
+    React.useEffect(()=>{
+        const q = queryString.parse(props.location.search);
+        const freshcategory = q.category;
+        axios.get(`http://localhost:5000/courses/category/${freshcategory}`)
        .then(res=>{
            console.log(res.data);
-           this.setState({
-               courses : res.data.courses,
-               loaded : true
-           })
+           setCourses(res.data.courses);
+           setLoaded(true);
        })
-    }
-    render() {
-        if(!this.state.loaded){
+       //eslint-disable-next-line
+    },[category])
+
+
+        const q = queryString.parse(props.location.search);
+        const freshcategory = q.category;
+
+        if(freshcategory!==category){
+            setCategory(freshcategory);
+        }
+ 
+        if(!loaded){
             return (
                 <React.Fragment>
                         <img src={book} alt="Loading" />
@@ -40,7 +45,7 @@ export default class Courses extends Component {
                 </React.Fragment>
             )
         }
-        else if(this.state.courses.length===0){
+        else if(courses.length===0){
             return (
                 <React.Fragment>
                     <img src={notfound} alt="No course found" />
@@ -51,15 +56,17 @@ export default class Courses extends Component {
             )
         }
         return (
-            <div className="course">
-                 {this.state.courses.map(course=>{
-                     return(
-                         <div key={course._id} style={{width:345,margin: "3%" , float:"left"}}>
-                             <Course courses={course}/>
-                         </div>
-                     )
-                 })}
-            </div>
+            <React.Fragment>                
+                    <div className="course">
+                            {courses.map(course=>{
+                                return(
+                                    <div key={course._id} style={{width:345,margin: "3%" , float:"left"}}>
+                                        <Course courses={course}/>
+                                    </div>
+                                )
+                            })}
+                    </div>
+            </React.Fragment>
         )
-    }
+    
 }

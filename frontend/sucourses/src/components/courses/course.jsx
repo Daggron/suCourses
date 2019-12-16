@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Book from '../../book.gif'
 import CourseDialog from '../Dialoug';
 import PropTypes from 'prop-types'
+import { Slide } from '@material-ui/core';
 
 const useStyles = makeStyles({
   card: {
@@ -46,31 +47,35 @@ export default  function Course(props) {
   const {courses} = props;
 
   return (
-    <Card className={classes.card}>
-      <CourseDialog course={cor} open={open} handleClose={handleClose} />
-      <CardActionArea>
-       <img className={classes.media} src={Book} alt="Books" />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-                {courses.title}
-          </Typography>
-          <Typography style={{marginTop : 5}} variant="body2" color="textSecondary" component="p">
-            {courses.description.slice(0,100)}...
-          </Typography>
-          <Typography style={{marginTop : 20}} variant="body2" color="textSecondary" component="p">
-            Instructor - {courses.instructor}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions style={{margin : "auto"}}>
-        <Button onClick={()=>{
-          handleClickOpen();
-          setSelectedJob(courses)
-          }} size="small" color="primary" variant="contained" style={{margin:"auto"}}>
-          Read More
-        </Button>
-      </CardActions>
-    </Card>
+    <React.Fragment>
+      <Slide direction="up" in={true} mountOnEnter unmountOnExit>
+        <Card className={classes.card}>
+          <CourseDialog course={cor} open={open} handleClose={handleClose} />
+          <CardActionArea>
+          <img className={classes.media} src={Book} alt="Books" />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                    {courses.title}
+              </Typography>
+              <Typography style={{marginTop : 5}} variant="body2" color="textSecondary" component="p">
+                {courses.description.slice(0,100)}...
+              </Typography>
+              <Typography style={{marginTop : 20}} variant="body2" color="textSecondary" component="p">
+                Instructor - {courses.instructor}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions style={{margin : "auto"}}>
+            <Button onClick={()=>{
+              handleClickOpen();
+              setSelectedJob(courses)
+              }} size="small" color="primary" variant="contained" style={{margin:"auto"}}>
+              Read More
+            </Button>
+          </CardActions>
+        </Card>
+      </Slide>
+    </React.Fragment>
   );
 }
 
