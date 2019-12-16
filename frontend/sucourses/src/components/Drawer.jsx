@@ -221,11 +221,19 @@ export default function PersistentDrawerLeft() {
               inputProps={{ 'aria-label': 'search' }}
               onChange={handleChange}
             />
-            <Link to={`/category/find/?category=${search}`}>
+            {search.length!==0 ?(
+              <Link to={`/category/find/?category=${search}`}>
+                <Button onClick={handleSearch}> 
+                  <SearchIcon/>
+                </Button>
+              </Link>
+            )
+            :(
               <Button onClick={handleSearch}> 
-                <SearchIcon/>
+                  <SearchIcon/>
               </Button>
-            </Link>
+            )
+            }
           </div>
 
       </Drawer>
