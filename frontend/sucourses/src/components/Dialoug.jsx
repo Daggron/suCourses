@@ -8,6 +8,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
+import PropTypes from 'prop-types';
+
 
 export default function CourseDialog({course , open ,  handleClose}) {
   const theme = useTheme();
@@ -85,4 +87,10 @@ export default function CourseDialog({course , open ,  handleClose}) {
       </Dialog>
     </div>
   );
+}
+
+CourseDialog.propTypes = {
+  course : PropTypes.object,
+  open : PropTypes.bool,
+  handleClose : PropTypes.func
 }

@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
   card: {
@@ -23,9 +24,11 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Category({category}) {
-  const classes = useStyles();
 
+
+export default  function Category(props) {
+  const classes = useStyles();
+  const {category} = props
   return (
     <React.Fragment>
     <Card className={classes.card}>
@@ -46,4 +49,13 @@ export default function Category({category}) {
     </React.Fragment>
   );
 }
+
+Category.propTypes = {
+  category : PropTypes.shape({
+    title : PropTypes.string,
+    icon : PropTypes.string,
+    _id : PropTypes.string
+  })
+}
+
 

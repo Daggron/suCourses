@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Book from '../../book.gif'
 import CourseDialog from '../Dialoug';
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles({
   card: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles({
 
 
 
-export default function Course({courses}) {
+export default  function Course(props) {
   const [open, setOpen] = React.useState(false);
   const [cor , setCor] = React.useState({});
   const classes = useStyles();
@@ -41,6 +42,8 @@ export default function Course({courses}) {
   const setSelectedJob =(e)=>{
     setCor(e);
   }
+
+  const {courses} = props;
 
   return (
     <Card className={classes.card}>
@@ -70,3 +73,19 @@ export default function Course({courses}) {
     </Card>
   );
 }
+
+
+Course.propTypes = {
+  courses : PropTypes.shape({
+    title:PropTypes.string,
+    description : PropTypes.string,
+    instructor : PropTypes.string,
+    _id : PropTypes.string,
+    Level : PropTypes.string,
+    Language : PropTypes.string,
+    url : PropTypes.string,
+    value : PropTypes.string
+  })
+}
+
+
