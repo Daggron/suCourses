@@ -14,10 +14,9 @@ import { Link, Redirect } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import Fab from '@material-ui/core/Fab'
 import BookIcon from '@material-ui/icons/Book';
-import {Button } from '@material-ui/core';
+import {Button, Input } from '@material-ui/core';
 import CategoryIcon from '@material-ui/icons/Category';
 import SearchIcon from '@material-ui/icons/Search';
-import TextField from '@material-ui/core/TextField';
 
 
 
@@ -212,7 +211,7 @@ export default function PersistentDrawerLeft() {
         </div>
 
         <div className={classes.buttons}>
-            <TextField
+            <Input
               placeholder="Search…"
               classes={{
                 root: classes.inputRoot,

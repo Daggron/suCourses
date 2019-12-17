@@ -2,9 +2,15 @@ import React from 'react'
 import queryString from 'query-string';
 import axios from 'axios'
 import book from '../../book.gif';
-import Course from './course';
 import notfound from '../../404.gif';
 import { Typography } from '@material-ui/core';
+import Loadable from 'react-loadable';
+import Loading from '../Loading';
+
+const Course = Loadable({
+    loader : ()=> import('./course'),
+    loading : Loading
+})
 
 
 export default function Courses(props){

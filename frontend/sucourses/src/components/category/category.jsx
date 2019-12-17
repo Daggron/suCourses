@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Slide } from '@material-ui/core';
 
 const useStyles = makeStyles({
   card: {
@@ -31,21 +32,23 @@ export default  function Category(props) {
   const {category} = props
   return (
     <React.Fragment>
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography   variant="h5" component="h1" gutterBottom>
-              {category.title}
+    <Slide direction="up" in={true} mountOnEnter unmountOnExit>
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography   variant="h5" component="h1" gutterBottom>
+                {category.title}
+          </Typography>
+        <Typography variant="h1" component="h1">
+              <i className={category.icon} style={{height: "100"}} ></i>
         </Typography>
-      <Typography variant="h1" component="h1">
-            <i className={category.icon} style={{height: "100"}} ></i>
-      </Typography>
-      </CardContent>
-      <CardActions>
-        <Link to={`category/find/?category=${category.title}`} >
-        <Button size="medium" variant="contained" color="primary" style={{marginLeft:15}}>View Courses</Button>
-        </Link>
-      </CardActions>
-    </Card>
+        </CardContent>
+        <CardActions>
+          <Link to={`category/find/?category=${category.title}`} >
+          <Button size="medium" variant="contained" color="primary" style={{marginLeft:15}}>View Courses</Button>
+          </Link>
+        </CardActions>
+      </Card>
+    </Slide>
     </React.Fragment>
   );
 }
