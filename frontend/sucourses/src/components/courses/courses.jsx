@@ -28,7 +28,6 @@ export default function Courses(props){
         const freshcategory = q.category;
         axios.get(`http://localhost:5000/courses/category/${freshcategory}`)
        .then(res=>{
-        //    console.log(res.data);
            setCourses(res.data.courses);
            setLoaded(true);
        })

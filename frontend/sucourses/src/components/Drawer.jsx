@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import Fab from '@material-ui/core/Fab'
 import BookIcon from '@material-ui/icons/Book';
@@ -137,15 +137,11 @@ export default function PersistentDrawerLeft() {
   };
 
   const handleChange = (e) =>{
-    console.log(e.target.value)
+    // console.log(e.target.value)
     setSearch(e.target.value)
   }
 
-  const handleSearch = () =>{
-    console.log(search)
-    return  <Redirect to={{pathname:'/category'}} />
-    
-  }
+  
 
   return (
     <div className={classes.root}>
@@ -222,14 +218,14 @@ export default function PersistentDrawerLeft() {
               onChange={handleChange}
             />
             {search.length!==0 ?(
-              <Link to={`/search/query?search=${search}`}>
-                <Button variant="contained" color="primary" onClick={handleSearch} style={{marginTop:10}}> 
+              <Link to={`/search?search=${search}`}>
+                <Button variant="contained" color="primary"  style={{marginTop:10}}> 
                   <SearchIcon/>
                 </Button>
               </Link>
             )
             :(
-              <Button variant="contained" color="primary" onClick={handleSearch} style={{marginTop:10}}> 
+              <Button variant="contained" color="primary"  style={{marginTop:10}}> 
                   <SearchIcon/>
               </Button>
             )

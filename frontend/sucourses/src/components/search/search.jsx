@@ -10,31 +10,28 @@ import Course from '../courses/course';
 
 
 export default function Search(props){
-const x = queryString.parse(props.location.search);
-const y = x.search;
-const [search , setSearch] = React.useState(y);
-const [courses , setCourses ] = React.useState([]);
-const [loaded , setLoaded ] = React.useState(false);
 
+    const x = queryString.parse(props.location.search);
+    const y = x.search
 
-React.useEffect(()=>{
-    const q = queryString.parse(props.location.search);
-    const newsearch = q.search;
-    axios.get(`http://localhost:5000/courses/search/${newsearch}`)
-   .then(res=>{
-       console.log(res.data);
-       setCourses(res.data.courses);
-       setLoaded(true);
-   })
-   //eslint-disable-next-line
-},[search])
+    const [search , setSearch] = React.useState(y);
+    const [courses , setCourses ] = React.useState([]);
+    const [loaded , setLoaded ] = React.useState(false);
 
+    React.useEffect(()=>{
+        
+        axios.get(`http://localhost:5000/courses/search/${search}`)
+        .then(res=>{
+            setCourses(res.data.courses);
+            setLoaded(true);
+        })
+        //eslint-disable-next-line
+    },[search])
 
-    const q = queryString.parse(props.location.search);
-    const freshcategory = q.search;
+    
 
-    if(freshcategory!==search){
-        setSearch(search);
+    if(y!==search){
+        setSearch(y);
     }
 
     if(!loaded){
