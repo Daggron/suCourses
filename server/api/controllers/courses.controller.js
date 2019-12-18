@@ -104,7 +104,7 @@ exports.search = async (req,res)=>{
         return false;
     })
     return res.json({
-        data:courses
+        courses:courses
     })
     
 }

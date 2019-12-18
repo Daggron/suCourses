@@ -15,8 +15,10 @@ const Course = Loadable({
 
 export default function Courses(props){
     
+    const data = queryString.parse(props.location.search);
+    const xyz = data.search
 
-    const [category , setCategory] = React.useState(props.location.search);
+    const [category , setCategory] = React.useState(xyz);
     const [courses , setCourses ] = React.useState([]);
     const [loaded , setLoaded ] = React.useState(false);
   
@@ -26,7 +28,7 @@ export default function Courses(props){
         const freshcategory = q.category;
         axios.get(`http://localhost:5000/courses/category/${freshcategory}`)
        .then(res=>{
-           console.log(res.data);
+        //    console.log(res.data);
            setCourses(res.data.courses);
            setLoaded(true);
        })

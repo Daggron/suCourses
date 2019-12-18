@@ -222,7 +222,7 @@ export default function PersistentDrawerLeft() {
               onChange={handleChange}
             />
             {search.length!==0 ?(
-              <Link to={`/category/find/?category=${search}`}>
+              <Link to={`/search/query?search=${search}`}>
                 <Button variant="contained" color="primary" onClick={handleSearch} style={{marginTop:10}}> 
                   <SearchIcon/>
                 </Button>
