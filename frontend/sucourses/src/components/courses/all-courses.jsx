@@ -5,7 +5,7 @@ import Course from './course';
 export default function Allcourses() {
     const [courses , setCourses] = React.useState([]);
     React.useEffect(()=>{
-        axios.get('http://localhost:5000/courses/')
+        axios.get('/courses/')
         .then((res)=>{
             console.log(res.data);
             setCourses(res.data.courses);

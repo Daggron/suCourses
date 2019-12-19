@@ -8,7 +8,9 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import Loadable from 'react-loadable';
 import Loading from './components/Loading';
-import Search from './components/search/search'
+// import AddCourse from './components/add-course/addCourse';
+// import Search from './components/search/search'
+
 
 
 const CategoriesComponent = Loadable({
@@ -26,10 +28,10 @@ const categoriesFind = Loadable({
   loading : Loading
 });
 
-// const Search = Loadable({
-//   loader: ()=>import('./components/search/search'),
-//   loading :Loading
-// })
+const Search = Loadable({
+  loader: ()=>import('./components/search/search'),
+  loading :Loading
+})
 
 const Error = Loadable({
   loader : ()=> import('./components/404'),
@@ -37,8 +39,13 @@ const Error = Loadable({
 
 });
 
+const AddCourse = Loadable({
+  loader : ()=>import('./components/add-course/addCourse'),
+  loading : Loading
+});
+
 function App() {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: white)');
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: light)');
 
   const theme = React.useMemo(
     () =>
@@ -50,6 +57,7 @@ function App() {
     [prefersDarkMode],
   );
 
+  
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
@@ -61,6 +69,7 @@ function App() {
               <Route path="/search" component={Search} />
               <Route exact path="/category" component={CategoriesComponent} />
               <Route path="/category/find" component={categoriesFind} />
+              <Route path="/add" component={AddCourse} />
               <Route path="*" component={Error} />
             </Switch>
           </Router>

@@ -26,8 +26,9 @@ export default function Courses(props){
     React.useEffect(()=>{
         const q = queryString.parse(props.location.search);
         const freshcategory = q.category;
-        axios.get(`http://localhost:5000/courses/category/${freshcategory}`)
+        axios.get(`/courses/category/${freshcategory}`)
        .then(res=>{
+        //    console.log(res.data);
            setCourses(res.data.courses);
            setLoaded(true);
        })

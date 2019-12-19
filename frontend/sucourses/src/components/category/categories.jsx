@@ -11,7 +11,7 @@ const Category = Loader({
 export default function Categories() {
     const [categories , setCategories] = React.useState([]);
     React.useEffect(()=>{
-        axios.get('http://localhost:5000/categories')
+        axios.get('/categories')
         .then((res)=>{
             console.log(res.data)
             setCategories(res.data.categories);

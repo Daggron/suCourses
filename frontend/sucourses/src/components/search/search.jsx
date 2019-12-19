@@ -1,10 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 import queryString from 'query-string';
-import book from '../../book.gif';
 import notfound from '../../404.gif';
 import { Typography } from '@material-ui/core';
-import Course from '../courses/course';
+import Loadable from 'react-loadable';
+import Loading from '../Loading';
+
+const Course = Loadable({
+    loader : ()=>import('../courses/course'),
+    loading : Loading
+})
 
 
 
@@ -20,13 +25,13 @@ export default function Search(props){
 
     React.useEffect(()=>{
         
-        axios.get(`http://localhost:5000/courses/search/${search}`)
+        axios.get(`/courses/search/${search}`)
         .then(res=>{
             setCourses(res.data.courses);
             setLoaded(true);
         })
         //eslint-disable-next-line
-    },[search])
+        },[search])
 
     
 
@@ -37,10 +42,7 @@ export default function Search(props){
     if(!loaded){
         return (
             <React.Fragment>
-                    <img src={book} alt="Loading" />
-                    <Typography style={{marginTop: 5}}variant="h6" component="h2" color="secondary">
-                            Please be patient while we are loading courses
-                    </Typography>
+                  
             </React.Fragment>
         )
     }
