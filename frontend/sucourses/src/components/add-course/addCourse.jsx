@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
+import { Button , Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -11,6 +11,16 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }));
+
+function Heading(){
+    return(
+      <React.Fragment>
+        <Typography component="h1" variant="h2">
+            Add Courses
+        </Typography>
+      </React.Fragment>
+    )
+}
 
 export default function AddCourse() {
     const classes = useStyles();
@@ -96,7 +106,8 @@ export default function AddCourse() {
     }
     return (
         <React.Fragment>
-            <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
+            <Heading />
+            <form onSubmit={handleSubmit} method="POST" className={classes.root} noValidate autoComplete="off">
                 <div>
                     <TextField
                     id="standard-error-helper-text"
@@ -179,13 +190,10 @@ export default function AddCourse() {
                     onChange={handleCategory}
                     />
                </div>
-                <Button onClick={handleSubmit}>
+                <Button variant="contained" color="primary" style={{marginBottom:30}}>
                     Submit
                 </Button>
             </form>
-            {
-                console.log(course)
-            }
         </React.Fragment>
     )
 }
