@@ -186,7 +186,7 @@ export default function AddCourse() {
                     <TextField
                     id="standard-error-helper-text"
                     label="Category"
-                    helperText="React , Go , Etc"
+                    helperText="React , Go ,other"
                     onChange={handleCategory}
                     />
                </div>
