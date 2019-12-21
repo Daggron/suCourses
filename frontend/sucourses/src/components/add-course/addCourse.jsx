@@ -1,7 +1,12 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button , Typography } from '@material-ui/core';
+import { Button , Typography, FormControl } from '@material-ui/core';
+import axios from 'axios';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -9,6 +14,13 @@ const useStyles = makeStyles(theme => ({
       margin: theme.spacing(1),
       width: "70vw",
     },
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    width: "70vw"
   },
 }));
 
@@ -24,6 +36,20 @@ function Heading(){
 
 export default function AddCourse() {
     const classes = useStyles();
+
+    const [initcategory , setInitCategory ] = React.useState([]);
+
+    React.useEffect(()=>{
+        axios.get('/categories')
+        .then(data=>{
+            console.log(data.data);
+            setInitCategory(data.data.categories);
+        })
+        .catch(err=>{
+            alert(err);
+        })
+    },[])
+
     const initialState = {
         title : '',
         instructor : '',
@@ -35,6 +61,7 @@ export default function AddCourse() {
         description : '',
     }
 
+    //eslint-disable-next-line
     const [course , dispatch ] = React.useReducer((state , action)=>{
         switch(action.type){
             case 'add':
@@ -71,6 +98,7 @@ export default function AddCourse() {
     }
 
     const handleCategory = (e)=>{
+        console.log(e.target.value);
         setCategory(e.target.value);
     }
 
@@ -183,17 +211,35 @@ export default function AddCourse() {
                     />
                </div>
                <div>
-                    <TextField
-                    id="standard-error-helper-text"
-                    label="Category"
-                    helperText="React , Go ,other"
+                <FormControl className={classes.formControl}>    
+                    <InputLabel id="demo-simple-select-label">Category</InputLabel>
+                    <Select
+                    value={category}
                     onChange={handleCategory}
-                    />
-               </div>
-                <Button variant="contained" color="primary" style={{marginBottom:30}}>
+                    displayEmpty
+                    className={classes.selectEmpty}
+                    >
+                    {
+                        initcategory.map(singleCategory=>{
+                            return(
+                                <MenuItem key={singleCategory._id} value={singleCategory.title}>
+                                   <i className={singleCategory.icon}> </i> &nbsp; {singleCategory.title}
+                                </MenuItem>
+                            )
+                        })
+                    }
+                    </Select>
+                    <FormHelperText style={{textAlign:"left"}}>Select Category</FormHelperText>
+                    </FormControl>
+                </div>
+                <Button type="submit" variant="contained" color="primary" style={{marginBottom:30}}>
                     Submit
                 </Button>
+                {/* {
+                    console.log(course)
+                } */}
             </form>
+        
         </React.Fragment>
     )
 }

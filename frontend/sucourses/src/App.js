@@ -45,7 +45,7 @@ const AddCourse = Loadable({
 });
 
 function App() {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: light)');
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: "light")');
 
   const theme = React.useMemo(
     () =>
