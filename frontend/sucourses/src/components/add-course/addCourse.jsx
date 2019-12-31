@@ -39,6 +39,8 @@ export default function AddCourse() {
 
     const [initcategory , setInitCategory ] = React.useState([]);
 
+    const [added , setAdded] = React.useState(false);
+
     React.useEffect(()=>{
         axios.get('/categories')
         .then(data=>{
@@ -50,26 +52,10 @@ export default function AddCourse() {
         })
     },[])
 
-    const initialState = {
-        title : '',
-        instructor : '',
-        Category : '',
-        Language : '',
-        Level : '',
-        url : '',
-        value : '',
-        description : '',
-    }
+        
 
     //eslint-disable-next-line
-    const [course , dispatch ] = React.useReducer((state , action)=>{
-        switch(action.type){
-            case 'add':
-              return action.value;
-            default :
-            return initialState
-        }
-    },initialState)
+  
 
     
     const [title , settitle ] = React.useState("");
@@ -116,21 +102,28 @@ export default function AddCourse() {
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log('submitted');
-        dispatch({
-            type:'add',
-            value:{
+        const data ={
                 title:title,
                 instructor:instructor,
                 Level:level,
                 Language:language,
                 uel:url,
                 value:value,
-                category:category,
+                Category:category,
                 description:description
 
-            }
+        }
+
+        axios.post('/courses/data',data)
+                    .then((res)=>{
+                        console.log(res.data);
+                        setAdded(true);
+                        console.log(added);
         })
+
+        
+            
+        
     }
     return (
         <React.Fragment>
@@ -181,22 +174,6 @@ export default function AddCourse() {
                <div>
                     <TextField
                     id="standard-error-helper-text"
-                    label="Language"
-                    helperText="Language of Instructor(English, Hindi)"
-                    onChange={handleUrlChange}
-                    />
-               </div>
-               <div>
-                    <TextField
-                    id="standard-error-helper-text"
-                    label="Value"
-                    helperText="Amount of Course (Free , paid)"
-                    onChange={handleValue}
-                    />
-               </div>
-               <div>
-                    <TextField
-                    id="standard-error-helper-text"
                     label="Value"
                     helperText="Amount of Course (Free , paid)"
                     onChange={handleValue}
@@ -235,9 +212,7 @@ export default function AddCourse() {
                 <Button type="submit" variant="contained" color="primary" style={{marginBottom:30}}>
                     Submit
                 </Button>
-                {/* {
-                    console.log(course)
-                } */}
+                
             </form>
         
         </React.Fragment>
