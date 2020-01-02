@@ -1,12 +1,24 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
-import { Button , Typography, FormControl } from '@material-ui/core';
+import { makeStyles , withStyles } from '@material-ui/core/styles';
+import { Button , Typography, FormControl, FormLabel } from '@material-ui/core';
 import axios from 'axios';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import { green } from '@material-ui/core/colors';
+import Radio from '@material-ui/core/Radio';
+
+const GreenRadio = withStyles({
+    root: {
+      color: green[400],
+      '&$checked': {
+        color: green[600],
+      },
+    },
+    checked: {},
+ })(props => <Radio color="default" {...props} />);
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -67,6 +79,8 @@ export default function AddCourse() {
     const [language , setLanguage] = React.useState("");
     const [category , setCategory ] = React.useState("");
 
+    
+
     const handleTitleChange= (event) =>{
         settitle(event.target.value);
     }
@@ -107,21 +121,21 @@ export default function AddCourse() {
                 instructor:instructor,
                 Level:level,
                 Language:language,
-                uel:url,
+                url:url,
                 value:value,
                 Category:category,
                 description:description
 
         }
 
-        axios.post('/courses/data',data)
-                    .then((res)=>{
-                        console.log(res.data);
-                        setAdded(true);
-                        console.log(added);
-        })
+        // axios.post('/courses/data',data)
+        //             .then((res)=>{
+        //                 console.log(res.data);
+        //                 setAdded(true);
+        //                 console.log(added);
+        // })
 
-        
+        console.log(data);
             
         
     }
@@ -164,21 +178,38 @@ export default function AddCourse() {
                     />
                </div>
                <div>
-                    <TextField
-                    id="standard-error-helper-text"
-                    label="Level"
-                    helperText="(Intermediate , Beginner , Advanced)"
+                <FormControl className={classes.formControl}>    
+                    <InputLabel id="demo-simple-select-label">Level</InputLabel>
+                    <Select
+                    value={level}
                     onChange={handleLevel}
-                    />
-               </div>
-               <div>
-                    <TextField
-                    id="standard-error-helper-text"
-                    label="Value"
-                    helperText="Amount of Course (Free , paid)"
-                    onChange={handleValue}
-                    />
-               </div>
+                    displayEmpty
+                    className={classes.selectEmpty}
+                    >
+                    <MenuItem
+                        value="Beginner"
+                    >
+                        Beginner
+                    </MenuItem>
+
+                    <MenuItem
+                        value="Intermediate"
+                    >
+                        Intermediate
+                    </MenuItem>
+
+                    <MenuItem
+                        value="Advanced"
+                    >
+                       Advanced
+                    </MenuItem>
+
+                    </Select>
+                    <FormHelperText style={{textAlign:"left"}}>Select Category</FormHelperText>
+                    </FormControl>
+                </div>
+
+               
                <div>
                     <TextField
                     id="standard-error-helper-text"
@@ -209,8 +240,46 @@ export default function AddCourse() {
                     <FormHelperText style={{textAlign:"left"}}>Select Category</FormHelperText>
                     </FormControl>
                 </div>
+
+                <div style={{marginTop: "10px"}}>
+                <div style={{textAlign:"left" }}>
+                    <div style={{width:"70vw",margin:"auto"}}>
+                   <FormLabel>
+                       Amount of Course
+                   </FormLabel>
+                   </div>
+                </div>  
+               
+                <div style={{
+                    width :"70vw",
+                    margin : "auto",
+                    textAlign: "left",
+                    marginTop : 5
+                }}>   
+                 <FormLabel>
+                    Free
+                </FormLabel>             
+                <GreenRadio
+                        checked={value === 'Free'}
+                        onChange={handleValue}
+                        value="Free"
+                        name="radio-button-demo"
+                        inputProps={{ 'aria-label': 'Free' }}
+                 />
+                 <FormLabel>
+                    Paid
+                </FormLabel>
+                   <GreenRadio
+                        checked={value === 'Paid'}
+                        onChange={handleValue}
+                        value="Paid"
+                        name="radio-button-demo"
+                        inputProps={{ 'aria-label': 'Paid' }}
+                 />
+                 </div>
+                </div>
                 <Button type="submit" variant="contained" color="primary" style={{marginBottom:30}}>
-                    Submit
+                    Add Course 
                 </Button>
                 
             </form>
