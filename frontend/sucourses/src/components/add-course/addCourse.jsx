@@ -9,6 +9,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { green } from '@material-ui/core/colors';
 import Radio from '@material-ui/core/Radio';
+import AlertBox from './courseAdded';
 
 const GreenRadio = withStyles({
     root: {
@@ -51,7 +52,7 @@ export default function AddCourse() {
 
     const [initcategory , setInitCategory ] = React.useState([]);
 
-    const [added , setAdded] = React.useState(false);
+    const [added , setAdded] = React.useState("");
 
     React.useEffect(()=>{
         axios.get('/categories')
@@ -78,6 +79,7 @@ export default function AddCourse() {
     const [level , setLevel] = React.useState("");
     const [language , setLanguage] = React.useState("");
     const [category , setCategory ] = React.useState("");
+    const [extra , setextra] = React.useState("");
 
     
 
@@ -128,19 +130,33 @@ export default function AddCourse() {
 
         }
 
-        // axios.post('/courses/data',data)
-        //             .then((res)=>{
-        //                 console.log(res.data);
-        //                 setAdded(true);
-        //                 console.log(added);
-        // })
+        axios.post('/courses/data',data)
+                    .then((res)=>{
+                        console.log(res.data);
+                        if(res.data.success === "OK"){
+                            console.log(true);
+                            setAdded("Okay, The Course is successfully added to the rviewer's List");
+                            setextra("It will be reviewed Soon by our deepin bot and added to the courses list soon")
+                            setOpen(true);
+                        }
+        })
 
-        console.log(data);
+        // console.log(data);
             
         
     }
+
+
+    const [open, setOpen] = React.useState(false);
+
+   
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
         <React.Fragment>
+            <AlertBox open={open}  handleClose={handleClose} added={added} extra = {extra}/>
             <Heading />
             <form onSubmit={handleSubmit} method="POST" className={classes.root} noValidate autoComplete="off">
                 <div>
