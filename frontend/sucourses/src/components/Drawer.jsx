@@ -17,6 +17,9 @@ import BookIcon from '@material-ui/icons/Book';
 import {Button, Input } from '@material-ui/core';
 import CategoryIcon from '@material-ui/icons/Category';
 import SearchIcon from '@material-ui/icons/Search';
+import PostAddIcon from '@material-ui/icons/PostAdd';
+
+
 
 
 
@@ -209,6 +212,15 @@ export default function PersistentDrawerLeft() {
                 </Fab>
             </Link>
         </div>
+
+        <div className={classes.buttons}>
+            <Link to="/add">
+                <Fab color="primary" variant="extended" aria-label="Category">
+                    <PostAddIcon /> Add Course
+                </Fab>
+            </Link>
+        </div>
+
 
         <div className={classes.buttons}>
             <Input
