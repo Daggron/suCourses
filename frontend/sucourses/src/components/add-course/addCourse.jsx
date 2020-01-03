@@ -81,6 +81,10 @@ export default function AddCourse() {
     const [category , setCategory ] = React.useState("");
     const [extra , setextra] = React.useState("");
 
+    const [open, setOpen] = React.useState(false);
+    const [alerttitle, setAlertTitle] = React.useState("");
+
+
     
 
     const handleTitleChange= (event) =>{
@@ -135,10 +139,27 @@ export default function AddCourse() {
                         console.log(res.data);
                         if(res.data.success === "OK"){
                             console.log(true);
+                            setAlertTitle("Hurray");
                             setAdded("Okay, The Course is successfully added to the rviewer's List");
                             setextra("It will be reviewed Soon by our deepin bot and added to the courses list soon")
                             setOpen(true);
                         }
+                        else{
+                            setAlertTitle(
+                                "Error"
+                            )
+                            setAdded("OOpsie There is some problem while adding the course");
+                            setextra("The Report has been send to the backend developer and will be fixed soon");
+                            setOpen(true);
+                        }
+                    
+        })
+        .catch((err)=>{
+            setAdded("Internal Server Error");
+            setextra("The Report has been send to the backend developer and will be fixed soon");
+            setAlertTitle("Error")
+            setOpen(true);
+
         })
 
         // console.log(data);
@@ -147,8 +168,6 @@ export default function AddCourse() {
     }
 
 
-    const [open, setOpen] = React.useState(false);
-
    
     const handleClose = () => {
         setOpen(false);
@@ -156,7 +175,7 @@ export default function AddCourse() {
 
     return (
         <React.Fragment>
-            <AlertBox open={open}  handleClose={handleClose} added={added} extra = {extra}/>
+            <AlertBox open={open} title={alerttitle}  handleClose={handleClose} added={added} extra = {extra}/>
             <Heading />
             <form onSubmit={handleSubmit} method="POST" className={classes.root} noValidate autoComplete="off">
                 <div>

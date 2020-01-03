@@ -55,7 +55,7 @@ export default function AlertBox(props) {
     <div>
       <Dialog onClose={props.handleClose} aria-labelledby="customized-dialog-title" open={props.open}>
         <DialogTitle id="customized-dialog-title" onClose={props.handleClose}>
-          Alert
+          {props.title}
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
