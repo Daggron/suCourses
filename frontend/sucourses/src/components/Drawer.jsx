@@ -33,6 +33,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
   },
   appBar: {
+    background: '#f5f5f5',
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -110,7 +111,7 @@ const useStyles = makeStyles(theme => ({
     zIndex: 1
   },
   inputRoot: {
-    color: 'inherit',
+    color: '#181818',
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 7),
@@ -161,15 +162,15 @@ export default function PersistentDrawerLeft() {
       >
         <Toolbar>
           <IconButton
-            color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
+            color="#424242"
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h6" noWrap style={{color : "#424242"}}>
             SuCourses
           </Typography>
         </Toolbar>
