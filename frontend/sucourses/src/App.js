@@ -75,7 +75,7 @@ function App() {
               <Route exact path="/category" component={CategoriesComponent} />
               <Route path="/category/find" component={categoriesFind} />
               <Route path="/add" component={AddCourse} />
-              <Route path="/jobs" component={Jobs} />
+              <Route path="/jobsfinder" component={Jobs} />
               <Route path="*" component={Error} />
             </Switch>
           </Router>
