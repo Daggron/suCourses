@@ -1,0 +1,497 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200121.202326.28490.0.001.json",
+    "dumpEventTime": "2020-01-21T20:23:26Z",
+    "dumpEventTimeStamp": "1579618406333",
+    "processId": 28490,
+    "cwd": "/home/daggron/Desktop/Mern_Stack/suCourses",
+    "commandLine": [
+      "/home/daggron/.nvm/versions/node/v12.14.1/bin/node",
+      "index.js"
+    ],
+    "nodejsVersion": "v12.14.1",
+    "glibcVersionRuntime": "2.27",
+    "glibcVersionCompiler": "2.17",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "linux",
+    "componentVersions": {
+      "node": "12.14.1",
+      "v8": "7.7.299.13-node.16",
+      "uv": "1.33.1",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.1",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.14.1/node-v12.14.1-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.14.1/node-v12.14.1.tar.gz"
+    },
+    "osName": "Linux",
+    "osRelease": "5.3.0-24-generic",
+    "osVersion": "#26~18.04.2-Ubuntu SMP Tue Nov 26 12:34:22 UTC 2019",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz",
+        "speed": 3736,
+        "user": 1246700,
+        "nice": 600,
+        "sys": 224700,
+        "idle": 3969700,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz",
+        "speed": 3742,
+        "user": 1130400,
+        "nice": 200,
+        "sys": 217500,
+        "idle": 3783300,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz",
+        "speed": 3742,
+        "user": 1235300,
+        "nice": 300,
+        "sys": 221900,
+        "idle": 3782400,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz",
+        "speed": 3649,
+        "user": 1168000,
+        "nice": 400,
+        "sys": 293500,
+        "idle": 3858600,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz",
+        "speed": 3742,
+        "user": 1257500,
+        "nice": 100,
+        "sys": 210800,
+        "idle": 3831700,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz",
+        "speed": 3709,
+        "user": 1246100,
+        "nice": 200,
+        "sys": 241600,
+        "idle": 3924500,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz",
+        "speed": 3816,
+        "user": 1175800,
+        "nice": 0,
+        "sys": 221700,
+        "idle": 3948700,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz",
+        "speed": 3702,
+        "user": 1156000,
+        "nice": 200,
+        "sys": 257200,
+        "idle": 3829000,
+        "irq": 0
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "lo",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "wlp0s20f3",
+        "internal": false,
+        "mac": "b4:6b:fc:61:c0:0b",
+        "address": "192.168.82.142",
+        "netmask": "255.255.252.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "lo",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "wlp0s20f3",
+        "internal": false,
+        "mac": "b4:6b:fc:61:c0:0b",
+        "address": "fe80::26be:773:545a:cf54",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 3
+      }
+    ],
+    "host": "pop-os"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x0000000000b05ba5",
+      "symbol": "report::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::string const&, v8::Local<v8::String>) [/home/daggron/.nvm/versions/node/v12.14.1/bin/node]"
+    },
+    {
+      "pc": "0x00000000009dbd93",
+      "symbol": "node::OnFatalError(char const*, char const*) [/home/daggron/.nvm/versions/node/v12.14.1/bin/node]"
+    },
+    {
+      "pc": "0x0000000000b3b18e",
+      "symbol": "v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [/home/daggron/.nvm/versions/node/v12.14.1/bin/node]"
+    },
+    {
+      "pc": "0x0000000000b3b509",
+      "symbol": "v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [/home/daggron/.nvm/versions/node/v12.14.1/bin/node]"
+    },
+    {
+      "pc": "0x0000000000ce68a5",
+      "symbol": " [/home/daggron/.nvm/versions/node/v12.14.1/bin/node]"
+    },
+    {
+      "pc": "0x0000000000ce6f36",
+      "symbol": "v8::internal::Heap::RecomputeLimits(v8::internal::GarbageCollector) [/home/daggron/.nvm/versions/node/v12.14.1/bin/node]"
+    },
+    {
+      "pc": "0x0000000000cf2dca",
+      "symbol": "v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags) [/home/daggron/.nvm/versions/node/v12.14.1/bin/node]"
+    },
+    {
+      "pc": "0x0000000000cf3cd5",
+      "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [/home/daggron/.nvm/versions/node/v12.14.1/bin/node]"
+    },
+    {
+      "pc": "0x0000000000cf66e8",
+      "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationType, v8::internal::AllocationAlignment) [/home/daggron/.nvm/versions/node/v12.14.1/bin/node]"
+    },
+    {
+      "pc": "0x0000000000cbd017",
+      "symbol": "v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationType) [/home/daggron/.nvm/versions/node/v12.14.1/bin/node]"
+    },
+    {
+      "pc": "0x0000000000ff307b",
+      "symbol": "v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*) [/home/daggron/.nvm/versions/node/v12.14.1/bin/node]"
+    },
+    {
+      "pc": "0x0000000001376259",
+      "symbol": " [/home/daggron/.nvm/versions/node/v12.14.1/bin/node]"
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2153504768,
+    "totalCommittedMemory": 2149952464,
+    "usedMemory": 2146091720,
+    "availableMemory": 48443688,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 32568,
+        "capacity": 261872,
+        "used": 32296,
+        "available": 229576
+      },
+      "new_space": {
+        "memorySize": 4194304,
+        "committedMemory": 1274720,
+        "capacity": 2094976,
+        "used": 287976,
+        "available": 1807000
+      },
+      "old_space": {
+        "memorySize": 2144710656,
+        "committedMemory": 2144565000,
+        "capacity": 2142080656,
+        "used": 2142079048,
+        "available": 1608
+      },
+      "code_space": {
+        "memorySize": 425984,
+        "committedMemory": 375328,
+        "capacity": 313536,
+        "used": 313536,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 1052672,
+        "committedMemory": 845840,
+        "capacity": 603040,
+        "used": 603040,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 2809856,
+        "committedMemory": 2809856,
+        "capacity": 2772272,
+        "used": 2772272,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 3552,
+        "used": 3552,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 2094976,
+        "used": 0,
+        "available": 2094976
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 73.6913,
+    "kernelCpuSeconds": 1.26481,
+    "cpuConsumptionPercent": 115.317,
+    "maxRss": 2260844544,
+    "pageFaults": {
+      "IORequired": 0,
+      "IONotRequired": 652955
+    },
+    "fsActivity": {
+      "reads": 0,
+      "writes": 16
+    }
+  },
+  "uvthreadResourceUsage": {
+    "userCpuSeconds": 25.543,
+    "kernelCpuSeconds": 0.331935,
+    "cpuConsumptionPercent": 39.8076,
+    "fsActivity": {
+      "reads": 0,
+      "writes": 16
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "LESSOPEN": "| /usr/bin/lesspipe %s",
+    "USER": "daggron",
+    "LANGUAGE": "en_US:en",
+    "LC_TIME": "en_US.UTF-8",
+    "npm_config_version_commit_hooks": "true",
+    "npm_config_user_agent": "yarn/1.21.1 npm/? node/v12.14.1 linux x64",
+    "TEXTDOMAIN": "im-config",
+    "XDG_SEAT": "seat0",
+    "npm_config_bin_links": "true",
+    "SSH_AGENT_PID": "2518",
+    "XDG_SESSION_TYPE": "x11",
+    "npm_node_execpath": "/home/daggron/.nvm/versions/node/v12.14.1/bin/node",
+    "npm_package_devDependencies_nodemon": "^2.0.1",
+    "npm_config_init_version": "1.0.0",
+    "LD_LIBRARY_PATH": "/u01/app/oracle/product/11.2.0/xe/lib:",
+    "SHLVL": "3",
+    "XDG_CACHE_HOME": "/home/daggron/snap/code/common/.cache",
+    "CHROME_DESKTOP": "code-url-handler.desktop",
+    "QT4_IM_MODULE": "xim",
+    "HOME": "/home/daggron",
+    "DESKTOP_SESSION": "pop",
+    "TERM_PROGRAM_VERSION": "1.41.1",
+    "NVM_BIN": "/home/daggron/.nvm/versions/node/v12.14.1/bin",
+    "npm_package_dependencies_redis": "^2.8.0",
+    "GIO_LAUNCHED_DESKTOP_FILE": "/var/lib/snapd/desktop/applications/code_code.desktop",
+    "npm_config_init_license": "MIT",
+    "GNOME_SHELL_SESSION_MODE": "pop",
+    "APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL": "true",
+    "GTK_MODULES": "gail:atk-bridge",
+    "HOMEBREW_PREFIX": "/home/linuxbrew/.linuxbrew",
+    "YARN_WRAP_OUTPUT": "false",
+    "npm_config_version_tag_prefix": "v",
+    "LC_MONETARY": "en_US.UTF-8",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+    "npm_package_dependencies_dotenv": "^8.2.0",
+    "COLORTERM": "truecolor",
+    "GIO_LAUNCHED_DESKTOP_FILE_PID": "3081",
+    "npm_package_description": "A webapp to seach all the courses free and affordable for programmers to learn something new.",
+    "NVM_DIR": "/home/daggron/.nvm",
+    "ORACLE_BASE": "/u01/app/oracle",
+    "npm_package_readmeFilename": "README.md",
+    "MANDATORY_PATH": "/usr/share/gconf/pop.mandatory.path",
+    "IM_CONFIG_PHASE": "2",
+    "INFOPATH": "/home/linuxbrew/.linuxbrew/share/info",
+    "npm_package_scripts_dev": "nodemon index.js",
+    "LOGNAME": "daggron",
+    "GTK_IM_MODULE": "ibus",
+    "DESKTOP_AUTOSTART_ID": "10f4dda1487581a03a157961786810453700000022610018",
+    "_": "/usr/local/bin/yarn",
+    "npm_package_dependencies_query_string": "^6.9.0",
+    "npm_package_dependencies_express": "^4.17.1",
+    "DEFAULTS_PATH": "/usr/share/gconf/pop.default.path",
+    "npm_config_registry": "https://registry.yarnpkg.com",
+    "USERNAME": "daggron",
+    "XDG_SESSION_ID": "3",
+    "TERM": "xterm-256color",
+    "GNOME_DESKTOP_SESSION_ID": "this-is-deprecated",
+    "npm_package_scripts_start": "node index.js",
+    "npm_config_ignore_scripts": "",
+    "WINDOWPATH": "2",
+    "npm_package_dependencies_axios": "^0.19.1",
+    "PATH": "/tmp/yarn--1579618195370-0.9451318551252745:/home/daggron/Desktop/Mern_Stack/suCourses/node_modules/.bin:/home/daggron/.config/yarn/link/node_modules/.bin:/home/daggron/.yarn/bin:/home/daggron/.nvm/versions/node/v12.14.1/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/daggron/.nvm/versions/node/v12.14.1/lib/node_modules/npm/bin/node-gyp-bin:/home/daggron/.nvm/versions/node/v12.14.1/bin/node_modules/npm/bin/node-gyp-bin:/home/daggron/.nvm/versions/node/v12.14.1/bin:/home/daggron/Desktop/Mern_Stack/suCourses/jdk8u232-b09-jre/bin:/u01/app/oracle/product/11.2.0/xe/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/daggron/Android/Sdk/emulator:/home/daggron/Android/Sdk/tools:/home/daggron/Android/Sdk/tools/bin:/home/daggron/Android/Sdk/platform-tools",
+    "NODE": "/home/daggron/.nvm/versions/node/v12.14.1/bin/node",
+    "PAPERSIZE": "letter",
+    "HOMEBREW_CELLAR": "/home/linuxbrew/.linuxbrew/Cellar",
+    "SESSION_MANAGER": "local/pop-os:@/tmp/.ICE-unix/2261,unix/pop-os:/tmp/.ICE-unix/2261",
+    "npm_package_dependencies_devicon": "^2.2.0",
+    "npm_package_name": "sucourses",
+    "XDG_MENU_PREFIX": "gnome-",
+    "LC_ADDRESS": "en_US.UTF-8",
+    "BAMF_DESKTOP_FILE_HINT": "/var/lib/snapd/desktop/applications/code_code.desktop",
+    "GDK_BACKEND": "x11",
+    "XDG_RUNTIME_DIR": "/run/user/1000/snap.code",
+    "DISPLAY": ":0",
+    "LANG": "en_US.UTF-8",
+    "XDG_CURRENT_DESKTOP": "Unity",
+    "LC_TELEPHONE": "en_US.UTF-8",
+    "LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:",
+    "TERM_PROGRAM": "vscode",
+    "XDG_SESSION_DESKTOP": "pop",
+    "XMODIFIERS": "@im=ibus",
+    "XAUTHORITY": "/run/user/1000/gdm/Xauthority",
+    "npm_lifecycle_script": "nodemon index.js",
+    "npm_package_main": "index.js",
+    "SSH_AUTH_SOCK": "/run/user/1000/keyring/ssh",
+    "GSETTINGS_SCHEMA_DIR": "/snap/code/23/usr/share/glib-2.0/schemas",
+    "npm_config_version_git_message": "v%s",
+    "ORACLE_HOME": "/u01/app/oracle/product/11.2.0/xe",
+    "DISABLE_WAYLAND": "1",
+    "LC_NAME": "en_US.UTF-8",
+    "SHELL": "/bin/bash",
+    "GDK_PIXBUF_MODULEDIR": "/snap/code/23/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders",
+    "npm_lifecycle_event": "dev",
+    "npm_package_version": "1.0.0",
+    "NO_AT_BRIDGE": "1",
+    "QT_ACCESSIBILITY": "1",
+    "GDMSESSION": "pop",
+    "npm_config_argv": "{\"remain\":[],\"cooked\":[\"run\",\"dev\"],\"original\":[\"dev\"]}",
+    "npm_package_dependencies_cors": "^2.8.5",
+    "LESSCLOSE": "/usr/bin/lesspipe %s %s",
+    "LC_MEASUREMENT": "en_US.UTF-8",
+    "npm_config_version_git_tag": "true",
+    "npm_config_version_git_sign": "",
+    "TEXTDOMAINDIR": "/usr/share/locale/",
+    "GDK_PIXBUF_MODULE_FILE": "/home/daggron/snap/code/common/.cache/gdk-pixbuf-loaders.cache",
+    "GPG_AGENT_INFO": "/run/user/1000/gnupg/S.gpg-agent:0:1",
+    "LC_IDENTIFICATION": "en_US.UTF-8",
+    "npm_package_dependencies_mongoose": "^5.7.14",
+    "npm_package_license": "ISC",
+    "npm_config_strict_ssl": "true",
+    "ORACLE_SID": "XE",
+    "XDG_VTNR": "2",
+    "QT_IM_MODULE": "ibus",
+    "PWD": "/home/daggron/Desktop/Mern_Stack/suCourses",
+    "npm_execpath": "/usr/local/lib/node_modules/yarn/bin/yarn.js",
+    "npm_package_dependencies_node_cron": "^2.0.3",
+    "CLUTTER_IM_MODULE": "xim",
+    "ANDROID_HOME": "/home/daggron/Android/Sdk",
+    "NVM_CD_FLAGS": "",
+    "XDG_DATA_DIRS": "/usr/share/pop:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop",
+    "XDG_CONFIG_DIRS": "/etc/xdg/xdg-pop:/etc/xdg",
+    "LC_NUMERIC": "en_US.UTF-8",
+    "HOMEBREW_REPOSITORY": "/home/linuxbrew/.linuxbrew/Homebrew",
+    "npm_config_save_prefix": "^",
+    "npm_config_ignore_optional": "",
+    "LC_PAPER": "en_US.UTF-8",
+    "NLS_LANG": "AMERICAN_AMERICA.AL32UTF8",
+    "MANPATH": "/home/daggron/.nvm/versions/node/v12.14.1/share/man:/home/linuxbrew/.linuxbrew/share/man:",
+    "INIT_CWD": "/home/daggron/Desktop/Mern_Stack/suCourses",
+    "PORT": "5000",
+    "DB": "mongodb+srv://su:su@cluster0-bmdt4.mongodb.net/test?retryWrites=true&w=majority"
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": 0,
+      "hard": "unlimited"
+    },
+    "data_seg_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": 16777216,
+      "hard": 16777216
+    },
+    "max_memory_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 1048576,
+      "hard": 1048576
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": "unlimited"
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 30868,
+      "hard": 30868
+    },
+    "virtual_memory_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "linux-vdso.so.1",
+    "/lib/x86_64-linux-gnu/libdl.so.2",
+    "/usr/lib/x86_64-linux-gnu/libstdc++.so.6",
+    "/lib/x86_64-linux-gnu/libm.so.6",
+    "/lib/x86_64-linux-gnu/libgcc_s.so.1",
+    "/lib/x86_64-linux-gnu/libpthread.so.0",
+    "/lib/x86_64-linux-gnu/libc.so.6",
+    "/lib64/ld-linux-x86-64.so.2",
+    "/lib/x86_64-linux-gnu/libnss_files.so.2",
+    "/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2",
+    "/lib/x86_64-linux-gnu/libnss_dns.so.2",
+    "/lib/x86_64-linux-gnu/libresolv.so.2"
+  ]
+}

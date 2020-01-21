@@ -29,6 +29,7 @@ fetchCourses();
 
 app.use('/courses',require('./server/api/routes/courses.routes'));
 app.use('/categories',require('./server/api/routes/category.routes'));
+app.use('/jobs',require('./server/api/routes/jobs.routes'));
 
 const port = process.env.PORT || 3001;
 

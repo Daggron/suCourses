@@ -44,6 +44,11 @@ const AddCourse = Loadable({
   loading : Loading
 });
 
+const Jobs = Loadable({
+  loader : ()=>import('./components/jobs/jobs'),
+  loading : Loading
+})
+
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: "light")');
 
@@ -70,6 +75,7 @@ function App() {
               <Route exact path="/category" component={CategoriesComponent} />
               <Route path="/category/find" component={categoriesFind} />
               <Route path="/add" component={AddCourse} />
+              <Route path="/jobs" component={Jobs} />
               <Route path="*" component={Error} />
             </Switch>
           </Router>
