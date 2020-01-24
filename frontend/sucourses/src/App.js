@@ -8,6 +8,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import Loadable from 'react-loadable';
 import Loading from './components/Loading';
+import SingleQuestion from './components/blogs/SingleQuestion';
 // import AddCourse from './components/add-course/addCourse';
 // import Search from './components/search/search'
 
@@ -49,6 +50,11 @@ const Jobs = Loadable({
   loading : Loading
 })
 
+const Blogs = Loadable ({
+  loader : ()=>import('./components/blogs/Blogs'),
+  loading : Loading
+})
+
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: "light")');
 
@@ -61,6 +67,7 @@ function App() {
       }),
     [prefersDarkMode],
   );
+
 
   
   return (
@@ -76,6 +83,8 @@ function App() {
               <Route path="/category/find" component={categoriesFind} />
               <Route path="/add" component={AddCourse} />
               <Route path="/jobsfinder" component={Jobs} />
+              <Route exact path="/questions" component={Blogs} />
+              <Route path="/questions/view/:id" component={SingleQuestion} />
               <Route path="*" component={Error} />
             </Switch>
           </Router>

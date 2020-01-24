@@ -7,6 +7,9 @@ const schema = new mongooose.Schema({
     user :{
         type : Object
     },
+    title:{
+        type : String
+    },
     question : {
         type : String,
     },

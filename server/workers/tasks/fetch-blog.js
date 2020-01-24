@@ -6,7 +6,7 @@ const setAsync = promisify(client.set).bind(client);
 
 async function fetchBlog(){
     query.find({})
-    .select('_id , userid , user , question')
+    .select('_id , userid , user , title , question')
     .exec()
     .then(async (data)=>{
         const raw = await JSON.stringify(data);

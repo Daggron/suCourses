@@ -49,7 +49,7 @@ exports.login = async (req,res,next)=>{
 }
 
 exports.getblog = async (req,res)=>{
-    let rawBlogs = await getAsync('blogs');
+    let rawBlogs = await getAsync('blog');
     let blogs = await JSON.parse(rawBlogs);
     res.json({
         blog : blogs
@@ -59,6 +59,7 @@ exports.getblog = async (req,res)=>{
 exports.postBlog = async (req,res)=>{
     let que = new question();
     que.userid = req.session.userid;
+    que.title = req.body.title;
     que.user = {
                     username : req.session.user.username,
                     email : req.session.user.email,
