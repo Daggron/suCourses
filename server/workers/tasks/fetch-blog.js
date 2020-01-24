@@ -13,6 +13,12 @@ async function fetchBlog(){
         const success = await setAsync('blog',raw);
         console.log(success);
         console.log(`Fetched ${data.length} blogs`);
+        data.map(async (singleBlog)=>{
+            let id = singleBlog._id;
+            let key = id.toString();
+            await setAsync(key , JSON.stringify(singleBlog));
+
+        })
     })
 }
 

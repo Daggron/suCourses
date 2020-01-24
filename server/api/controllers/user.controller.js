@@ -79,3 +79,13 @@ exports.postBlog = async (req,res)=>{
         })
     })
 }
+
+exports.getBlogById = async(req,res)=>{
+    console.log(req.params.id);
+    const rawblog = await getAsync(req.params.id);
+    const blog = await JSON.parse(rawblog);
+    res.json({
+        blog : blog
+    })
+
+}

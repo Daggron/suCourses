@@ -10,5 +10,7 @@ router.post('/blog' ,isauth , userController.postBlog);
 
 router.get('/blog' , userController.getblog);
 
+router.get('/blogbyid/:id' , userController.getBlogById);
+
 
 module.exports = router;
