@@ -39,7 +39,7 @@ export default function Job(props) {
                         }
                     </Typography>
                     <Button variant="contained" color="primary" style={{marginTop : 10}} onClick={()=>{
-                        setJob(props.job);
+                       selectJob(props.job);
                         setOpen(true)
                     }}>
                         View

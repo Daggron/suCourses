@@ -7,7 +7,7 @@ export default function Blogs() {
     const [question , getQuestions ] = React.useState([]);
 
     React.useEffect(()=>{
-        Axios.get('/user/blog')
+        Axios.get('http://localhost:5000/user/blog')
         .then(res=>{
             console.log(res.data.blog);
             getQuestions(res.data.blog);
@@ -17,6 +17,7 @@ export default function Blogs() {
         })
     },[])
 
+    if(question.length!==0){
     return (
         <div style={{display  : "flex" , justifyContent : "space-between" , alignContent : "space-between" , margin : "30"}}>
             {
@@ -30,4 +31,11 @@ export default function Blogs() {
             }
         </div>
     )
+    }else{
+        return(
+            <h1>
+                Loading...
+            </h1>
+        )
+    }
 }

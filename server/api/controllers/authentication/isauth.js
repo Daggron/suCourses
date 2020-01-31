@@ -1,10 +1,23 @@
-exports.isauth = async (req,res,next)=>{
-    console.log(req.isAuthenticated());
-    if(req.isAuthenticated()){
-        req.session.user = req.user;
-        req.session.userid = req.user._id;
-        return next();
+const jwt = require('jsonwebtoken');
+
+exports.isAuth = async (req,res,next)=>{
+    const token = req.body.token;
+    console.log(token);
+    try{
+    const verified = await jwt.verify(token,'Darth Vader');
+    if(verified){
+        next()
     }else{
-        return res.redirect('/login')
+        res.json({
+            success : false,
+            message : "Access Denied"
+        })
+    }
+    }catch(err){
+        res.json({
+            success : false,
+            message : "Invalid Token"
+
+        })
     }
 }

@@ -1,27 +1,12 @@
 import React from 'react'
 import booking from '../../img1.png';
-import { makeStyles, Button, TextField } from '@material-ui/core';
+import {  Button } from '@material-ui/core';
 import { Link } from 'react-router-dom'
 
 
-const useStyles = makeStyles(theme=>({
-    outerimg:{
-        position : "relative",
-        border : "1px solid red",
-        width : "50%",
-        top : "20%",
-        left : "50%",
-    },
-    img:{
-        border: "1px solid red",
-        borderTopLeftRadius : 1200,
-        borderBottomLeftRadius : 400,
-        borderTopRightRadius : 700,
-        borderBottomRightRadius: 600
-    }
-}))
+
 export default function Homepage() {
-    const classes = useStyles();
+    
     return (
         <React.Fragment>
             <div className="homepage">

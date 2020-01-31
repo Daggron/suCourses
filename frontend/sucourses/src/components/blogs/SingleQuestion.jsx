@@ -9,6 +9,7 @@ export default function SingleQuestion(props) {
 
 
     React.useEffect(()=>{
+        //eslint-disable-next-line
         const id = props.match.params.id;
         Axios.get(`http://localhost:5000/user/blogbyid/${id}`)
         .then(data=>{
@@ -19,6 +20,7 @@ export default function SingleQuestion(props) {
         .catch(err=>{
             alert(err);
         })
+        //eslint-disable-next-line
     },[])
     return (
         <div>

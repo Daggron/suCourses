@@ -13,6 +13,7 @@ module.exports = async (passport)=>{
             if(!match){
                 return(done(null , false , 'Email and password do not match'));
             }else{
+                console.log('authenticated')
                 return(done(null , user));
             }
        }

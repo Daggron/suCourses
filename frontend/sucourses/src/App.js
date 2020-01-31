@@ -8,11 +8,13 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import Loadable from 'react-loadable';
 import Loading from './components/Loading';
-import SingleQuestion from './components/blogs/SingleQuestion';
-// import AddCourse from './components/add-course/addCourse';
-// import Search from './components/search/search'
+import { MyContextProvider } from './context';
 
 
+const Login = Loadable({
+  loader : ()=>import('./components/login/login'),
+  loading : Loading
+})
 
 const CategoriesComponent = Loadable({
   loader : ()=> import('./components/category/categories'),
@@ -53,6 +55,16 @@ const Jobs = Loadable({
 const Blogs = Loadable ({
   loader : ()=>import('./components/blogs/Blogs'),
   loading : Loading
+});
+
+const SingleQuestion = Loadable({
+  loader : ()=>import('./components/blogs/SingleQuestion'),
+  loading : Loading
+});
+
+const Editor = Loadable({
+  loader : ()=>import('./components/blogs/EditorComponent'),
+  loading : Loading
 })
 
 function App() {
@@ -71,25 +83,29 @@ function App() {
 
   
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-          <Router>
-            <Drawer />
-            <Switch>
-              <Route exact path="/" component={Home}/>
-              <Route exact path="/course"  component={CoursesComponent}/>
-              <Route path="/search" component={Search} />
-              <Route exact path="/category" component={CategoriesComponent} />
-              <Route path="/category/find" component={categoriesFind} />
-              <Route path="/add" component={AddCourse} />
-              <Route path="/jobsfinder" component={Jobs} />
-              <Route exact path="/questions" component={Blogs} />
-              <Route path="/questions/view/:id" component={SingleQuestion} />
-              <Route path="*" component={Error} />
-            </Switch>
-          </Router>
-      </div>
-    </ThemeProvider>
+    <MyContextProvider>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+            <Router>
+              <Drawer />
+              <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route path="/logger" component={Login} />
+                <Route exact path="/course"  component={CoursesComponent}/>
+                <Route path="/search" component={Search} />
+                <Route exact path="/category" component={CategoriesComponent} />
+                <Route path="/category/find" component={categoriesFind} />
+                <Route path="/add" component={AddCourse} />
+                <Route path="/jobsfinder" component={Jobs} />
+                <Route exact path="/articles" component={Blogs} />
+                <Route path="/articles/view/:id" component={SingleQuestion} />
+                <Route path="/editor" component={Editor} />
+                <Route path="*" component={Error} />
+              </Switch>
+            </Router>
+        </div>
+      </ThemeProvider>
+    </MyContextProvider>
   );
 }
 
