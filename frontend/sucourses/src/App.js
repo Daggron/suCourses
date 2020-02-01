@@ -9,7 +9,8 @@ import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import Loadable from 'react-loadable';
 import Loading from './components/Loading';
 import { MyContextProvider } from './context';
-import Myblogs from './components/blogs/myblogs/Myblogs';
+// import Myblogs from './components/blogs/myblogs/Myblogs';
+import Register from './components/blogs/register/register';
 
 
 
@@ -104,7 +105,8 @@ function App() {
                 <Route exact path="/articles" component={Blogs} />
                 <Route path="/articles/view/:id" component={SingleQuestion} />
                 <Route path="/editor" component={Editor} />
-                <Router path="/data/articles" component={Myblogs} />
+                <Route path="/register" component={Register} />
+                {/* <Route path="/myarticles" component={Myblogs} /> */}
                 <Route path="*" component={Error} />
               </Switch>
             </Router>

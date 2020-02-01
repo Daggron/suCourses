@@ -219,6 +219,7 @@ export default function PersistentDrawerLeft() {
                 </Fab>
             </Link>
         </div>
+
         <div className={classes.buttons}>
             <Link to="/jobsfinder">
                 <Fab color="primary" variant="extended" aria-label="Category">
@@ -248,6 +249,13 @@ export default function PersistentDrawerLeft() {
           ""
         )}
 
+        <div className={classes.buttons}>
+            <Link to="/register">
+                <Fab color="primary" variant="extended" aria-label="Category">
+                    <PostAddIcon /> Register
+                </Fab>
+            </Link>
+        </div>
         
 
         { localStorage.getItem('token')  || success.success!==false ?(
