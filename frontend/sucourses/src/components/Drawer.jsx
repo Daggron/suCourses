@@ -20,13 +20,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import { MyContext } from '../context';
 
-
-
-
-
-
-
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -140,6 +133,7 @@ export default function PersistentDrawerLeft() {
   //eslint-disable-next-line
   const [success , setSuccess] = React.useContext(MyContext);
 
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -153,9 +147,7 @@ export default function PersistentDrawerLeft() {
     setSearch(e.target.value)
   }
 
- 
 
-  
 
   return (
     <div  className={classes.root}>
@@ -228,7 +220,7 @@ export default function PersistentDrawerLeft() {
             </Link>
         </div>
         <div className={classes.buttons}>
-            <Link to="/add">
+            <Link to="/jobsfinder">
                 <Fab color="primary" variant="extended" aria-label="Category">
                     <PostAddIcon /> Find Job
                 </Fab>
@@ -243,7 +235,7 @@ export default function PersistentDrawerLeft() {
             </Link>
         </div>
 
-        {localStorage.getItem('user') || success?(
+        { localStorage.getItem('token') ||  success.success ?(
            <div className={classes.buttons}>
              <Link to="editor">
                <Fab  color="primary" variant="extended" aria-label="Category">
@@ -258,18 +250,17 @@ export default function PersistentDrawerLeft() {
 
         
 
-        {localStorage.getItem('user') || success ?(
+        { localStorage.getItem('token')  || success.success!==false ?(
            <div className={classes.buttons}>
-           
-               <Fab onClick={()=>{localStorage.removeItem('user'); setSuccess(false) }} color="primary" variant="extended" aria-label="Category">
+               <Fab onClick={()=>{ localStorage.removeItem('token'); success.setSuccess(false) }} color="primary" variant="extended" aria-label="Category">
                     Logout 
                </Fab>
            
           </div>
         ):(
           <div className={classes.buttons}>
-           <Link to="logger">
-            <Fab onClick={()=>{localStorage.removeItem('user');}} color="primary" variant="extended" aria-label="Category">
+           <Link to="/logger">
+            <Fab onClick={localStorage.removeItem('token')}  color="primary" variant="extended" aria-label="Category">
                 Login 
             </Fab>
           </Link>

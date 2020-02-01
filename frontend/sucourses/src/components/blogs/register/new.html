@@ -1,0 +1,2002 @@
+<p>
+  Speaking CSS is like speaking English, or any other spoken language - there
+  are many words, but you only end up using a small subset of them on a daily
+  basis. Just like reading a dictionary isn't an efficient way to learn a
+  language, looking at a&nbsp;<a
+    href="https://www.w3.org/Style/CSS/all-properties.en.html"
+    rel="noopener noreferrer"
+    target="_blank"
+    >big list of properties</a
+  >&nbsp;isn't helpful to learn CSS.
+</p>
+<p>
+  Some people think CSS is really hard and it's too much of a hassle to learn.
+  Some people think that since it's not a programming language (<a
+    href="https://notlaura.com/is-css-turing-complete/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >or is it?</a
+  >), it's so easy that you don't even have to bother learning it. Ultimately,
+  there's a lot to CSS, but it doesn't have to be overwhelming. If you learn a
+  few key concepts, you should feel confident looking at or thinking of any
+  design and turning it into reality.
+</p>
+<p>
+  I'm going to go over some of the parts of CSS that are important on a daily
+  basis, and give some of tips and tricks I've come to learn over the years.
+</p>
+<blockquote>
+  If you just want some hints on how to make your design look pretty or
+  consistent, check out&nbsp;<a
+    href="https://www.taniarascia.com/design-for-developers/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Design for Developers</a
+  >. I also think&nbsp;<a
+    href="https://jgthms.com/web-design-in-4-minutes/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Web Design in 4 Minutes</a
+  >&nbsp;by&nbsp;<a
+    href="https://jgthms.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Jeremy Thomas</a
+  >&nbsp;has an excellent, interactive introduction to the concepts of web
+  design.
+</blockquote>
+<h4><br /></h4>
+<h4>Who is this article for?</h4>
+<p>
+  If you're a seasoned front end developer who already knows everything about
+  CSS, please close this tab immediately and run as fast as you can to the
+  nearest exit. If you've never heard of or used CSS before and don't know how
+  to load CSS into an HTML page, this resource is also not for you.
+</p>
+<p>
+  This article is for the middleground of people who have had to touch CSS a few
+  times here and there but ultimately don't feel like they know what they're
+  doing, or struggle with making basic layouts.
+</p>
+<p><br /></p>
+<h4>Topics covered</h4>
+<h5><br /></h5>
+<h5>HTML 101</h5>
+<ul>
+  <li>
+    <a
+      href="https://www.taniarascia.com/overview-of-css-concepts/#html-fundamentals"
+      rel="noopener noreferrer"
+      target="_blank"
+      >HTML Fundamentals</a
+    >
+  </li>
+</ul>
+<h5><br /></h5>
+<h5>CSS 101</h5>
+<ul>
+  <li>
+    <a
+      href="https://www.taniarascia.com/overview-of-css-concepts/#css-syntax"
+      rel="noopener noreferrer"
+      target="_blank"
+      >CSS Syntax</a
+    >
+  </li>
+  <li>
+    <a
+      href="https://www.taniarascia.com/overview-of-css-concepts/#css-selectors"
+      rel="noopener noreferrer"
+      target="_blank"
+      >CSS Selectors</a
+    >
+  </li>
+  <li>
+    <a
+      href="https://www.taniarascia.com/overview-of-css-concepts/#css-specificity"
+      rel="noopener noreferrer"
+      target="_blank"
+      >CSS Specificity</a
+    >
+  </li>
+  <li>
+    <a
+      href="https://www.taniarascia.com/overview-of-css-concepts/#css-properties"
+      rel="noopener noreferrer"
+      target="_blank"
+      >CSS Properties</a
+    >
+  </li>
+</ul>
+<h5><br /></h5>
+<h5>Working with CSS</h5>
+<ul>
+  <li>
+    <a
+      href="https://www.taniarascia.com/overview-of-css-concepts/#spacing-out-padding-and-margins"
+      rel="noopener noreferrer"
+      target="_blank"
+      >Spacing Out</a
+    >
+  </li>
+  <li class="ql-indent-1">padding,&nbsp;margin,&nbsp;border</li>
+  <li>
+    <a
+      href="https://www.taniarascia.com/overview-of-css-concepts/#box-model"
+      rel="noopener noreferrer"
+      target="_blank"
+      >Box Model</a
+    >
+  </li>
+  <li class="ql-indent-1">content-box&nbsp;vs.&nbsp;border-box</li>
+  <li>
+    <a
+      href="https://www.taniarascia.com/overview-of-css-concepts/#shorthand-properties"
+      rel="noopener noreferrer"
+      target="_blank"
+      >Shorthand Properties</a
+    >
+  </li>
+  <li>
+    <a
+      href="https://www.taniarascia.com/overview-of-css-concepts/#layouts-display"
+      rel="noopener noreferrer"
+      target="_blank"
+      >Layouts: Display</a
+    >
+  </li>
+  <li class="ql-indent-1">inline,&nbsp;inline-block,&nbsp;block</li>
+  <li>
+    <a
+      href="https://www.taniarascia.com/overview-of-css-concepts/#layouts-positioning"
+      rel="noopener noreferrer"
+      target="_blank"
+      >Layouts: Positioning</a
+    >
+  </li>
+  <li class="ql-indent-1">static,&nbsp;fixed,&nbsp;absolute,&nbsp;relative</li>
+  <li>
+    <a
+      href="https://www.taniarascia.com/overview-of-css-concepts/#layouts-flex"
+      rel="noopener noreferrer"
+      target="_blank"
+      >Layouts: Flex</a
+    >
+  </li>
+  <li class="ql-indent-1">
+    flex containers (flex&nbsp;display), flex items (flex&nbsp;property)
+  </li>
+  <li>
+    <a
+      href="https://www.taniarascia.com/overview-of-css-concepts/#responsive-media-queries"
+      rel="noopener noreferrer"
+      target="_blank"
+      >Responsive: Media Queries</a
+    >
+  </li>
+  <li class="ql-indent-1">min-width,&nbsp;max-width</li>
+  <li>
+    <a
+      href="https://www.taniarascia.com/overview-of-css-concepts/#other-considerations"
+      rel="noopener noreferrer"
+      target="_blank"
+      >Other Considerations</a
+    >
+  </li>
+</ul>
+<h2><br /></h2>
+<h2>HTML Fundamentals</h2>
+<p>
+  Just as a recap, we'll be talking about how CSS applies to HTML a lot, so make
+  sure you're familiar with what everything is referring to in HTML.
+</p>
+<ul>
+  <li>Tag&nbsp;- element name (<em>example:</em>&nbsp;a)</li>
+  <li>Attribute&nbsp;- HTML modifiers (<em>example:</em>&nbsp;href)</li>
+  <li>
+    Value&nbsp;- value applied to an attribute
+    (<em>example:</em>&nbsp;http://tania.dev)
+  </li>
+  <li>
+    Element&nbsp;- everything within the HTML tag - attributes, values, and
+    content.
+  </li>
+</ul>
+<p>Example:</p>
+<p>&lt;tag attribute="value"&gt;element contents&lt;/tag&gt;</p>
+<p>A real example:</p>
+<p>&lt;a href="http://tania.dev"&gt;Tania's WebRing&lt;/a&gt;</p>
+<p>This will link to my awesome WebRing.</p>
+<p><br /></p>
+<h3><br /></h3>
+<h3>HTML Reference</h3>
+<p>
+  SyntaxExampleTaga,&nbsp;img,&nbsp;h1Attributehref,&nbsp;src,&nbsp;altValuehttp://tania.dev,&nbsp;avatar.png,&nbsp;Some
+  alt textElement&lt;img src="avatar.png"&gt;
+</p>
+<p>Now we can move on to CSS.</p>
+<p><br /></p>
+<h2><br /></h2>
+<h2>CSS Fundamentals</h2>
+<p>
+  I'm just going to go over some of the basics of CSS - syntax, selectors, and
+  specificity.
+</p>
+<h2><br /></h2>
+<h2>CSS Syntax</h2>
+<p>There are three main parts of CSS - selectors, properties, and values.</p>
+<ul>
+  <li>Selectors&nbsp;- the element(s) being selected</li>
+  <li>Properties&nbsp;- the aspect of the element being styled</li>
+  <li>Values&nbsp;- the style being applied</li>
+</ul>
+<p>Example:</p>
+<p>selector {</p>
+<p>property: value;</p>
+<p>}</p>
+<p>A real example:</p>
+<p>h1 {</p>
+<p>color: blue;</p>
+<p>}</p>
+<p>This will make all&nbsp;h1&nbsp;elements blue.</p>
+<p><br /></p>
+<h2><br /></h2>
+<h2>CSS Selectors</h2>
+<p>
+  From&nbsp;least specific&nbsp;to&nbsp;most specific&nbsp;(more about that
+  below), here are the main types of selectors:
+</p>
+<ul>
+  <li>
+    <a
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors"
+      rel="noopener noreferrer"
+      target="_blank"
+      >Universal selector</a
+    >&nbsp;- selects all elements
+  </li>
+  <li>
+    <a
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/Type_selectors"
+      rel="noopener noreferrer"
+      target="_blank"
+      >Type selector</a
+    >&nbsp;- targets element(s) by HTML tag (includes&nbsp;<a
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements"
+      rel="noopener noreferrer"
+      target="_blank"
+      >pseudo elements</a
+    >)
+  </li>
+  <li>
+    <a
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors"
+      rel="noopener noreferrer"
+      target="_blank"
+      >Class selector</a
+    >,&nbsp;<a
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors"
+      rel="noopener noreferrer"
+      target="_blank"
+      >Attribute selector</a
+    >&nbsp;- targets element(s) by class or attribute, respectively
+    (includes&nbsp;<a
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes"
+      rel="noopener noreferrer"
+      target="_blank"
+      >pseudo classes</a
+    >)
+  </li>
+  <li>
+    <a
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors"
+      rel="noopener noreferrer"
+      target="_blank"
+      >ID selector</a
+    >&nbsp;- targets an element by id
+  </li>
+</ul>
+<p>* {</p>
+<p>/* Universal selector */</p>
+<p>}</p>
+<p><br /></p>
+<p>tag {</p>
+<p>/* Type selector */</p>
+<p>}</p>
+<p><br /></p>
+<p>tag::before {</p>
+<p>/* Type selector (psuedo element) */</p>
+<p>}</p>
+<p><br /></p>
+<p>.class {</p>
+<p>/* Class selector */</p>
+<p>}</p>
+<p><br /></p>
+<p>.class:hover {</p>
+<p>/* Class selector (pseudo class) */</p>
+<p>}</p>
+<p><br /></p>
+<p>[attr] {</p>
+<p>/* Attribute selector */</p>
+<p>}</p>
+<p><br /></p>
+<p>#id {</p>
+<p>/* ID selector */</p>
+<p>}</p>
+<blockquote>
+  Pseudo elements&nbsp;have two colons (::, or&nbsp;::before) and&nbsp;pseudo
+  classes&nbsp;have one colon (:, or&nbsp;:hover).
+</blockquote>
+<h3><br /></h3>
+<h3>CSS and JavaScript</h3>
+<p>
+  Note that even if you don't care much about CSS, learning about selectors will
+  help you write (vanilla) JavaScript, as the DOM selectors in a JavaScript
+  document query are the same.
+</p>
+<p>This query to get all elements that match a selector:</p>
+<p><strong>.js</strong></p>
+<p><br /></p>
+<p>document.querySelectorAll('article h2')</p>
+<p>
+  Targets all the same elements as this CSS to style all elements that match a
+  selector:
+</p>
+<p><strong>.css</strong></p>
+<p><br /></p>
+<p>article h2 {</p>
+<p>}</p>
+<blockquote>
+  Note:&nbsp;All selectors may target one or more elements except IDs, which can
+  only apply to a single element.
+</blockquote>
+<h3><br /></h3>
+<h3>A space means something</h3>
+<p>Do you know the difference between these two?</p>
+<ul>
+  <li>.foo.bar</li>
+  <li>.foo .bar</li>
+</ul>
+<p>
+  The first one targets a&nbsp;foo&nbsp;and&nbsp;bar&nbsp;on the same element.
+</p>
+<p><strong>.foo.bar example</strong></p>
+<p><br /></p>
+<p>.foo.bar {</p>
+<p>/* without a space */</p>
+<p>}</p>
+<p>&lt;div class="foo bar"&gt;I'm targeted&lt;/div&gt;</p>
+<p>
+  The second one targets a&nbsp;bar&nbsp;that is a descendent of a&nbsp;foo.
+</p>
+<p><strong>.foo .bar example</strong></p>
+<p><br /></p>
+<p>.foo .bar {</p>
+<p>/* with a space */</p>
+<p>}</p>
+<p>&lt;div class="foo"&gt;</p>
+<p>&lt;div class="bar"&gt;I'm targeted&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>
+  There are other selectors that can be used instead of a space to modify the
+  selector, such as&nbsp;&gt;,&nbsp;+, and&nbsp;~. These all have different
+  meanings. They are not used incredibly often so you can learn them as needed.
+</p>
+<h3><br /></h3>
+<h3>Selector Reference</h3>
+<p>
+  SelectorTargetsExampleUniversal selectorAll elements*Type selectorTags, pseudo
+  elementsh1,&nbsp;div,&nbsp;li::beforeClass selectorClasses, pseudo
+  classes.page-header,&nbsp;.page-content,&nbsp;.list-item:hoverAttribute
+  selectorAttributes[alt],&nbsp;[type="text"],&nbsp;[lang="en"]ID
+  selectorIDs#toggle,&nbsp;#getting-started,&nbsp;#about
+</p>
+<h2><br /></h2>
+<h2>CSS Specificity</h2>
+<p>What does "specificity" mean in CSS?</p>
+<p><br /></p>
+<h3><br /></h3>
+<h3>Order</h3>
+<p>
+  First, all things being equal, the order in which you use two selectors in the
+  stylesheet matters. So if we have a stylesheet with two classes:
+</p>
+<p><strong>Comparing two selectors weighted equally</strong></p>
+<p><br /></p>
+<p>.foo {</p>
+<p>color: blue;</p>
+<p>}</p>
+<p><br /></p>
+<p>.bar {</p>
+<p>color: red;</p>
+<p>}</p>
+<p>and you have both of those classes on the same element:</p>
+<p><strong>An example of one element using both selectors</strong></p>
+<p><br /></p>
+<p>&lt;div class="foo bar"&gt;What color am I?&lt;/div&gt;</p>
+<p>
+  ...then the one closest to the bottom wins. So in this case, the element's
+  color is red, because&nbsp;.bar&nbsp;appears closest to the bottom of the
+  stylesheet.
+</p>
+<h3><br /></h3>
+<h3>Calculating specificity</h3>
+<p>
+  CSS uses a number scale to determine specificity. You can also use&nbsp;<a
+    href="https://specificity.keegan.st/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >this specificity calculator</a
+  >&nbsp;to see how specific an element is.
+</p>
+<p>
+  As we know, there are three sections:&nbsp;ID,&nbsp;Class, and&nbsp;Type. In
+  the scale, all are represented by&nbsp;0&nbsp;initially.
+</p>
+<p>IDClassType000</p>
+<p>
+  Any time your selector contains one of the selectors, you'll increase that
+  bucket by 1.
+</p>
+<p>Add a type selector.</p>
+<p><strong>Only a type selector</strong></p>
+<p><br /></p>
+<p>h1 {</p>
+<p>/* 001 */</p>
+<p>}</p>
+<p>IDClassType001</p>
+<p>Add a class selector.</p>
+<p><strong>Type selector plus class selector</strong></p>
+<p><br /></p>
+<p>.container h1 {</p>
+<p>/* 011 */</p>
+<p>}</p>
+<p>IDClassType011</p>
+<p>Add an ID selector.</p>
+<p><strong>Type, class, and ID selector</strong></p>
+<p><br /></p>
+<p>#landing-page .container h1 {</p>
+<p>/* 111 */</p>
+<p>}</p>
+<p>IDClassType111</p>
+<p>
+  You can think of this scale exactly the same as a base-10 number system. If
+  just a tag is&nbsp;1&nbsp;(one), and a class and type
+  is&nbsp;11&nbsp;(eleven), and an id, class, and tag
+  is&nbsp;111&nbsp;(one-hundred and one), which one is the biggest? In this
+  case,&nbsp;111&nbsp;is the biggest and therefore the most specific.
+</p>
+<blockquote>
+  If you had more than 10 elements in a given bucket,
+  like&nbsp;1&nbsp;id,&nbsp;15&nbsp;classes, and&nbsp;30&nbsp;types, this
+  analogy doesn't work, but you could relate it to semantic numbering systems as
+  well - it would be&nbsp;1.15.30. However, if you're using that many selectors,
+  something has most likely gone horribly wrong.
+</blockquote>
+<p>
+  This means a class is an order of magnitude more specific than a type, and an
+  id is an order of magnitude more specific than a class.
+</p>
+<p>
+  In other words, if you had two ids and 0 classes vs. 1 id and 20 classes, the
+  two ids would win. For example:
+</p>
+<p>This selector is more specific: (200, or two-hundred)</p>
+<p><strong>Two ID selectors</strong></p>
+<p><br /></p>
+<p>#landing-page #about-section {</p>
+<p>/* 200 */</p>
+<p>}</p>
+<p>IDClassType200</p>
+<p>This selector is less specific: (140, or one-hundred forty)</p>
+<p><strong>An ID selector and many class selectors</strong></p>
+<p><br /></p>
+<p>#landing-page .foo.bar.baz.box {</p>
+<p>/* 140 */</p>
+<p>}</p>
+<p>IDClassType140</p>
+<h4><br /></h4>
+<h4>Inline styles</h4>
+<p>An inline style is stronger than any combination of id, class, or type.</p>
+<p><strong>Inline styles on an element</strong></p>
+<p><br /></p>
+<p>
+  &lt;div style="color: red;"&gt;I'm red! No selector can override
+  me!&lt;/div&gt;
+</p>
+<p><br /></p>
+<h3><br /></h3>
+<h3>Important!</h3>
+<p>
+  Except an&nbsp;!important&nbsp;keyword on a property can override even that...
+</p>
+<p><strong>Important keyword overriding inline styles on an element</strong></p>
+<p><br /></p>
+<p>div {</p>
+<p>color: blue !important;</p>
+<p>}</p>
+<p>
+  &lt;div style="color: red;"&gt;I've been overridden! I'm blue now!&lt;/div&gt;
+</p>
+<p>
+  Please, make very, very sparing use of&nbsp;!important. It becomes really hard
+  to override.&nbsp;!important&nbsp;should only be used when absolutely
+  necessary, like styling some third party you have no control over that is
+  using inline styles, and in a few cases with JavaScript toggling display.
+</p>
+<p>
+  To summarize, each level of hierarchy from type to&nbsp;!important&nbsp;is an
+  order of magnitude stronger than the previous one.
+  While&nbsp;!important&nbsp;is the strongest specificity modifier,
+  an&nbsp;!important&nbsp;can be overridden by another&nbsp;!important&nbsp;that
+  is otherwise higher (for example,&nbsp;!important&nbsp;+ ID is stronger
+  than&nbsp;!important&nbsp;plus class).
+</p>
+<h3><br /></h3>
+<h3>Specificity hierarchy</h3>
+<p>From least specific to most specific:</p>
+<p>
+  SelectorExampleSpecificityType selectorh10 0 0 1Class, attribute
+  selectors.class,&nbsp;[type="text"]0 0 1 0ID selector#contact0 1 0 0Inline
+  style&lt;div style="background: purple"&gt;1 0 0 0!important&nbsp;keyworddiv {
+  color: green !important }Overrides all
+</p>
+<h2><br /></h2>
+<h2>CSS Properties</h2>
+<p>
+  Here's a list of all properties that I think are absolutely essential to
+  knowing CSS. The equivalent of knowing the most basic verbs and nouns in
+  English that you can get by with.
+</p>
+<p>The minimum to be able to do anything:</p>
+<ul>
+  <li>padding,&nbsp;margin,&nbsp;border</li>
+  <li>background</li>
+  <li>
+    color,&nbsp;font-family,&nbsp;font-weight,&nbsp;font-size,&nbsp;line-height
+  </li>
+  <li>width,&nbsp;height,&nbsp;max-width,&nbsp;max-height</li>
+</ul>
+<p>Layout essentials:</p>
+<ul>
+  <li>position,&nbsp;z-index,&nbsp;top,&nbsp;right,&nbsp;bottom,&nbsp;left</li>
+  <li>display,&nbsp;flex,&nbsp;align-items,&nbsp;justify-content</li>
+  <li>@media</li>
+</ul>
+<p>Good to know, but not quite as essential as the rest:</p>
+<ul>
+  <li>grid,&nbsp;grid-template-columns,&nbsp;grid-template-rows</li>
+  <li>transform,&nbsp;transition</li>
+</ul>
+<p>
+  We'll go into these more in a moment. Now we should have enough of the basics
+  down to discuss some applications of the knowledge.
+</p>
+<h2><br /></h2>
+<h2>Spacing Out: Padding and Margins</h2>
+<p>
+  All of your spacing needs will be covered by two
+  properties:&nbsp;padding&nbsp;and&nbsp;margin.
+</p>
+<ul>
+  <li>
+    <a
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding"
+      rel="noopener noreferrer"
+      target="_blank"
+      >Padding</a
+    >&nbsp;is used to pad the inside of an element (<em>inside of the border</em
+    >)
+  </li>
+  <li>
+    <a
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin"
+      rel="noopener noreferrer"
+      target="_blank"
+      >Margin</a
+    >&nbsp;is used to separate elements (<em>outside of the border</em>)
+  </li>
+</ul>
+<blockquote>
+  In Developer Tools, content is represented by blue, padding is represented by
+  green and margins are represented by orange.
+</blockquote>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/ed32dd9a28dcfcb8fc3a87a64e295ef5/a9e6e/padding1.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/ed32dd9a28dcfcb8fc3a87a64e295ef5/a9e6e/padding1.png"
+  /></a>
+</p>
+<p>The order of nesting for an element is as follows:</p>
+<ul>
+  <li>
+    Element content
+    -&gt;&nbsp;padding&nbsp;-&gt;&nbsp;border&nbsp;-&gt;&nbsp;margin
+  </li>
+</ul>
+<p>
+  So if I were to make an element that was a square with padding and margins, it
+  would look like this:
+</p>
+<p>.square {</p>
+<p>border: 1px solid gray;</p>
+<p>padding: 10px;</p>
+<p>margin: 10px;</p>
+<p>height: 50px;</p>
+<p>width: 50px;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/1d8e8357bedaa65fc8072d1f7853bd9f/0c722/padding2.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/1d8e8357bedaa65fc8072d1f7853bd9f/0c722/padding2.png"
+  /></a>
+</p>
+<p>A few important notes:</p>
+<ul>
+  <li>
+    Margin&nbsp;is always transparent;&nbsp;padding&nbsp;can have a background
+    color
+  </li>
+  <li>
+    Margins&nbsp;collapse into each other;&nbsp;padding&nbsp;stacks on top of
+    each other
+  </li>
+  <li>
+    Margin&nbsp;can have negative values;&nbsp;padding&nbsp;cannot have negative
+    values
+  </li>
+  <li>
+    Padding&nbsp;adds to the area of an element that can be
+    clicked;&nbsp;margin&nbsp;does not
+  </li>
+  <li>
+    Padding&nbsp;(and border) add to the total size of an
+    element;&nbsp;margin&nbsp;does not
+  </li>
+</ul>
+<p>
+  What this means is that margins overlap each other, and padding never will.
+  This comes up a lot in formatting of headings and paragraphs, for example.
+</p>
+<p>
+  Using an example of an&nbsp;h2&nbsp;with a&nbsp;10px&nbsp;bottom margin and
+  a&nbsp;p&nbsp;with a&nbsp;10px&nbsp;top margin, how much of a margin will
+  separate the two elements?
+</p>
+<p>&lt;h2 style="margin-bottom: 10px;"&gt;Heading&lt;/h2&gt;</p>
+<p>&lt;p style="margin-top: 10px;"&gt;Paragraph&lt;/p&gt;</p>
+<p>
+  We'll see that there is a total&nbsp;10px&nbsp;margin between them,
+  not&nbsp;20px.
+</p>
+<p>
+  To use a real example, in&nbsp;<a
+    href="https://taniarascia.github.io/mvc/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >this example MVC todo app</a
+  >&nbsp;I made, each todo item is padded, and they're separated from each other
+  by margins.
+</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/cbadd897d97be4880876ac8605ac56ae/d19c0/padding3.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/cbadd897d97be4880876ac8605ac56ae/d19c0/padding3.png"
+  /></a>
+</p>
+<h3><br /></h3>
+<h3>Padding vs. margin</h3>
+<p>
+  TraitMarginPaddingBackground colorAlways transparentSet by elementCollapse or
+  stackCollapseStackNegative valuesAllowedNot allowedClickableNoYes
+</p>
+<h2><br /></h2>
+<h2>Box Model</h2>
+<p>
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Box-sizing</a
+  >! It means one thing: do padding and borders count as part of the element's
+  size, or not?
+</p>
+<ul>
+  <li>
+    Border box&nbsp;says yes! Borders and padding are part of an element's size!
+  </li>
+  <li>
+    Content box&nbsp;says no! Borders and padding are not part of an element's
+    size!
+  </li>
+</ul>
+<p>
+  My recommendation? Set&nbsp;box-sizing&nbsp;to&nbsp;border-box&nbsp;on
+  everything (*). Always. Don't even think about it! On the rare occasion
+  something needs to be&nbsp;content-box, you can override it. This is one of
+  the few things IE got right - making&nbsp;border-box&nbsp;the default while
+  the rest of the browsers use&nbsp;content-box&nbsp;as the default.
+</p>
+<h3><br /></h3>
+<h3>Border box vs. content box?</h3>
+<p>
+  Let's use our square example above. With&nbsp;content-box&nbsp;applied, the
+  element's total size is&nbsp;72px * 72px:
+</p>
+<p><strong>Content box</strong></p>
+<p><br /></p>
+<p>50px for content</p>
+<p>2px (x) and 2px (y) for four 1px borders</p>
+<p>20px for 10px padding all around</p>
+<p>= 72px square</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/be0681825820af03138e427aff18c9d8/91d6a/content-box.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/be0681825820af03138e427aff18c9d8/91d6a/content-box.png"
+  /></a>
+</p>
+<p>
+  With&nbsp;border-box&nbsp;applied, the element's total size is&nbsp;50px *
+  50px.
+</p>
+<p><strong>Border box</strong></p>
+<p><br /></p>
+<p>28px for content</p>
+<p>2px (x) and 2px (y) for four 1px borders</p>
+<p>20px for 10px padding all around</p>
+<p>= 50px square</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/8c587007336394b95f11c7cbe8144666/719ca/border-box.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/8c587007336394b95f11c7cbe8144666/719ca/border-box.png"
+  /></a>
+</p>
+<p>
+  If you're giving an element
+  a&nbsp;height&nbsp;and&nbsp;width&nbsp;of&nbsp;50px&nbsp;each, would you
+  prefer the element to be&nbsp;50px&nbsp;or&nbsp;72px? The most likely answer
+  is that you want the height and width to match the size of the element. This
+  will become very important when creating layouts, especially flex/grids that
+  are set by percent.
+</p>
+<p>You can apply&nbsp;border-box&nbsp;to all elements like this:</p>
+<p>* {</p>
+<p>box-sizing: border-box;</p>
+<p>}</p>
+<p>
+  (Or&nbsp;<a
+    href="https://www.paulirish.com/2012/box-sizing-border-box-ftw/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >this way</a
+  >&nbsp;if you have a specific need for&nbsp;content-box&nbsp;somewhere.)
+</p>
+<p><br /></p>
+<h2><br /></h2>
+<h2>Shorthand Properties</h2>
+<p>
+  You see me use&nbsp;padding: 5px&nbsp;and&nbsp;margin: 5px.
+  The&nbsp;padding&nbsp;property, for example, is actually a shorthand for four
+  individual properties:
+</p>
+<p>/* Shorthand property */</p>
+<p>div {</p>
+<p>padding: 5px;</p>
+<p>}</p>
+<p><br /></p>
+<p>/* Individual properties */</p>
+<p>div {</p>
+<p>padding-top: 5px;</p>
+<p>padding-right: 5px;</p>
+<p>padding-bottom: 5px;</p>
+<p>padding-left: 5px;</p>
+<p>}</p>
+<p>
+  Usually, you won't have to declare each side separately. In design, we like
+  symmetry, so if you ever end up with a different value for all four sides,
+  something has probably gone quite wrong and you might want to rethink your
+  strategy.
+</p>
+<ul>
+  <li>one&nbsp;value applies to all four sides (padding: 5px)</li>
+  <li>
+    two&nbsp;values apply to vertical (top and bottom) and horizontal (left and
+    right) respectively (padding: 10px 0)
+  </li>
+  <li>
+    four&nbsp;values are applied&nbsp;clockwise&nbsp;from top to left (padding:
+    1px 2px 3px 4px)
+  </li>
+</ul>
+<p>
+  This applies to both&nbsp;padding&nbsp;and&nbsp;margin. The most common usage
+  of an individual side property is when you're overriding something. For
+  example, an element exists with&nbsp;padding: 5px, and you want it to have a
+  different padding bottom value.
+</p>
+<p>
+  The next most common shorthand applies to&nbsp;border. You will most commonly
+  see border written like this:
+</p>
+<p>div {</p>
+<p>border: border-width border-style border-color;</p>
+<p>}</p>
+<p>These can be written out individually as well.</p>
+<p>div {</p>
+<p>border: 1px solid black;</p>
+<p>}</p>
+<p><br /></p>
+<p>/* Can also be written individually */</p>
+<p>div {</p>
+<p>border-color: black;</p>
+<p>border-width: 1px;</p>
+<p>border-style: solid;</p>
+<p>}</p>
+<p>
+  And just like&nbsp;padding&nbsp;and&nbsp;margin, each of these border
+  modifiers has its own side property.
+</p>
+<p>div {</p>
+<p>border-bottom-color: green;</p>
+<p>border-bottom-width: 2px;</p>
+<p>border-bottom-style: dashed;</p>
+<p>}</p>
+<p>
+  So actually when you write&nbsp;border: 1px solid black&nbsp;you're writing
+  shorthand for 12 properties combined.
+</p>
+<h2><br /></h2>
+<h2>Layouts: Display</h2>
+<p>
+  There are many&nbsp;display&nbsp;properties (<a
+    href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"
+    rel="noopener noreferrer"
+    target="_blank"
+    >see this list</a
+  >), but I think the most used and important to know
+  are&nbsp;block,&nbsp;inline,&nbsp;inline-block,&nbsp;flex&nbsp;and&nbsp;none.
+</p>
+<p>
+  Most elements by default are&nbsp;block,&nbsp;inline, or&nbsp;inline-block.
+  The default&nbsp;block&nbsp;element is a&nbsp;div, and the default inline
+  element is a&nbsp;span.
+</p>
+<p>Examples of default elements:</p>
+<ul>
+  <li>Inline:&nbsp;span,&nbsp;strong,&nbsp;em,&nbsp;img</li>
+  <li>
+    Inline-block:&nbsp;button,&nbsp;select, (Chrome
+    only:&nbsp;textarea,&nbsp;input)
+  </li>
+  <li>Block:&nbsp;div,&nbsp;p,&nbsp;nav,&nbsp;section</li>
+</ul>
+<blockquote>
+  There a few other obvious, specific ones, such as&nbsp;table&nbsp;elements
+  having the&nbsp;table&nbsp;display, and&nbsp;li&nbsp;having
+  the&nbsp;list-item&nbsp;display, but you will rarely decide to make some other
+  element have that display type.
+</blockquote>
+<h4><br /></h4>
+<h4>Inline</h4>
+<p>
+  Inline&nbsp;elements are usually text formatting
+  based:&nbsp;b&nbsp;or&nbsp;strong, which make text bold,
+  or&nbsp;i&nbsp;and&nbsp;em&nbsp;which make text italic. They are on the same
+  line - they do not create a new line. Inline elements are usually nested
+  within block elements. Horizontal and vertical padding and margins are applied
+  as expected, but vertical margins are not applied at all, and vertical padding
+  is ignored by other elements.
+</p>
+<p><strong>Inline element behavior</strong></p>
+<p><br /></p>
+<p>content content...&lt;span&gt;span&lt;/span&gt;..content content</p>
+<p>span {</p>
+<p>/* inline by default */</p>
+<p>padding: 15px;</p>
+<p>margin: 15px;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/a1b067d7decb06300dd160643244b4a1/e98df/inline.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/a1b067d7decb06300dd160643244b4a1/4d3f1/inline.png"
+  /></a>
+</p>
+<p>To be safe, inline elements should only be used for text formatting.</p>
+<h4><br /></h4>
+<h4>Inline block</h4>
+<p>
+  Inline-block&nbsp;elements are like inline elements, except they can have
+  vertical and horizontal padding and margins. They also appear next to each
+  other horizontally by default, and do not stack on new lines.
+</p>
+<p>span {</p>
+<p>display: inline-block;</p>
+<p>padding: 15px;</p>
+<p>margin: 15px;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/714dbd3d90b7123fee7b4ac1c46e166f/d7a69/inline-block.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/714dbd3d90b7123fee7b4ac1c46e166f/4d3f1/inline-block.png"
+  /></a>
+</p>
+<h4><br /></h4>
+<h4>Block</h4>
+<p>
+  Block&nbsp;elements span the full width of their containing element, and stack
+  on top of each other in new lines of the document.
+</p>
+<p><strong>Block element behavior</strong></p>
+<p><br /></p>
+<p>content content...</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>..content content</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/c6c21c4df290719c73e7f5b98ae42988/9d4f3/block-element.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/c6c21c4df290719c73e7f5b98ae42988/4d3f1/block-element.png"
+  /></a>
+</p>
+<h4><br /></h4>
+<h4>None</h4>
+<p>
+  An element with&nbsp;none&nbsp;applied will not appear in the document at all.
+  This is most commonly used for hiding/displaying content for mobile.
+</p>
+<h3><br /></h3>
+<h3>Display Reference</h3>
+<p>
+  DisplayBehaviorinlineused primarily for text formatting, appear next to each
+  other horizontallyinline-blockappear next to each other horizontally with
+  vertical padding and margins appliedblockspans the full width of the
+  container, stack verticallynonedoes not appear in the document
+</p>
+<h2><br /></h2>
+<h2>Layouts: Positioning</h2>
+<p>
+  The&nbsp;position&nbsp;property, while important, is not what you should be
+  using for the majority of layout related decisions.
+  Changing&nbsp;position&nbsp;from it's default value (static) should be
+  reserved for a few specific situations. There are three that are mainly
+  used:&nbsp;fixed,&nbsp;absolute, and&nbsp;relative. A positioned element is
+  affected
+  by&nbsp;top,&nbsp;left,&nbsp;right,&nbsp;bottom&nbsp;and&nbsp;z-index.
+</p>
+<h3><br /></h3>
+<h3>Normal flow</h3>
+<p>
+  If you do not modify the&nbsp;position&nbsp;of any element, everything
+  pertains to the&nbsp;<a
+    href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Normal_Flow"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Normal flow</a
+  >&nbsp;of the document. All this means is that:
+</p>
+<ul>
+  <li>
+    block level elements will take up the&nbsp;full width&nbsp;of
+    their&nbsp;container, and the height of their content
+  </li>
+  <li>
+    block level elements will stack on top of each other vertically, from top to
+    bottom
+  </li>
+  <li>inline elements are as tall and wide as their content</li>
+  <li>all elements are aware of each other, and margins will collapse</li>
+</ul>
+<h3><br /></h3>
+<h3>Static</h3>
+<p>
+  The default state of&nbsp;position&nbsp;is&nbsp;static. It means your element
+  stays in the normal flow of the document. If you have three static&nbsp;divs
+  next to each other, they will all be aware of each other and stack on top of
+  each other.
+</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>div {</p>
+<p>border: 1px solid black;</p>
+<p>padding: 15px;</p>
+<p>margin: 15px;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/16af13724d9ba12965e46d368101476b/9199c/div.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/16af13724d9ba12965e46d368101476b/4d3f1/div.png"
+  /></a>
+</p>
+<p>
+  static&nbsp;elements are not positioned, and therefore not affected
+  by&nbsp;top,&nbsp;left,&nbsp;right,&nbsp;bottom, or&nbsp;z-index.
+</p>
+<blockquote>
+  Note:&nbsp;Just because elements have a&nbsp;static&nbsp;position does not
+  always mean they will stack each other vertically.
+  The&nbsp;display&nbsp;property might modify this,
+  with&nbsp;inline-block,&nbsp;grid, or&nbsp;flex, but they will still be part
+  of the regular document flow and other elements will be aware of them.
+</blockquote>
+<h3><br /></h3>
+<h3>Fixed</h3>
+<p>
+  A&nbsp;fixed&nbsp;element is the easiest position to understand: it is always
+  visible and positioned according to the viewport.
+</p>
+<p>A few common uses of&nbsp;fixed&nbsp;positioning:</p>
+<ul>
+  <li>a stick-to-top&nbsp;navigation bar</li>
+  <li>a&nbsp;back to top&nbsp;button in the bottom right of the screen</li>
+  <li>a&nbsp;popup modal&nbsp;that is in the center of the viewport</li>
+</ul>
+<p>nav {</p>
+<p>position: fixed;</p>
+<p>}</p>
+<p>A few things to know about&nbsp;fixed&nbsp;elements:</p>
+<ul>
+  <li>
+    their position on the screen is determined
+    by&nbsp;top,&nbsp;left,&nbsp;right,
+    and&nbsp;bottom&nbsp;properties.&nbsp;top: 0&nbsp;means it will stick to the
+    top of the viewport, and&nbsp;top: 10px&nbsp;means it will
+    be&nbsp;10px&nbsp;from the top of the viewport
+  </li>
+  <li>
+    other elements are&nbsp;not aware&nbsp;of the existence of
+    a&nbsp;fixed&nbsp;element. This generally means you must account for the
+    space they would occupy by&nbsp;adding margins&nbsp;to the elements around
+    them.
+  </li>
+  <li>
+    fixed&nbsp;elements are no longer part of the flow and do not have a
+    containing element, and therefore do not expand to fill their container like
+    a normal (block) element would.
+  </li>
+</ul>
+<p>
+  This means if all we do is set our&nbsp;nav&nbsp;to fixed with no other
+  properties, it will not expand the full width of the viewport.
+</p>
+<p>&lt;nav&gt;nav&lt;/nav&gt;</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>div {</p>
+<p>border: 1px solid black;</p>
+<p>padding: 15px;</p>
+<p>margin: 15px;</p>
+<p>background: white;</p>
+<p>}</p>
+<p><br /></p>
+<p>nav {</p>
+<p>position: fixed;</p>
+<p>background: gray;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/e8e5eff5e855842eef21a32d93c752cc/65d02/nav.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/e8e5eff5e855842eef21a32d93c752cc/4d3f1/nav.png"
+  /></a>
+</p>
+<p>
+  So we can update it to be full width, and stick to the top and left of the
+  viewport:
+</p>
+<p>nav {</p>
+<p>position: fixed;</p>
+<p>top: 0;</p>
+<p>left: 0;</p>
+<p>padding: 20px;</p>
+<p>width: 100%;</p>
+<p>background: gray;</p>
+<p>z-index: 2;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/e41dd6f0f3aeccb88f276085f1508f9e/a0d55/nav2.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/e41dd6f0f3aeccb88f276085f1508f9e/4d3f1/nav2.png"
+  /></a>
+</p>
+<p>
+  We're adding the&nbsp;z-index&nbsp;property, which affects the z-axis of the
+  element. Since we intend this element to always be completely visible, we give
+  it a&nbsp;z-index&nbsp;greater than&nbsp;0&nbsp;to ensure it's always "above"
+  any element in our document. As we can see, there's one last issue, which is
+  that the&nbsp;nav&nbsp;is overlapping the content. As mentioned previously,
+  you&nbsp;<em>must</em>&nbsp;add space (margins) to&nbsp;static&nbsp;elements
+  to make space for the&nbsp;fixed&nbsp;element. Simply adding
+  a&nbsp;margin-bottom&nbsp;to the&nbsp;nav&nbsp;won't have any effect.
+</p>
+<p>&lt;nav&gt;nav&lt;/nav&gt;</p>
+<p><br /></p>
+<p>&lt;section&gt;</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>&lt;/section&gt;</p>
+<p>section {</p>
+<p>margin-top: 80px;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/dc89f59585ed11cbda5417582da73e70/a5d5c/nav3.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/dc89f59585ed11cbda5417582da73e70/4d3f1/nav3.png"
+  /></a>
+</p>
+<p>
+  So now we have that all taken care of and&nbsp;fixed&nbsp;positioning should
+  make sense.
+</p>
+<p><br /></p>
+<h3><br /></h3>
+<h3>Absolute and relative</h3>
+<p>
+  absolute&nbsp;and&nbsp;relative&nbsp;positions go hand in hand. Take
+  everything you just learned about&nbsp;fixed&nbsp;elements and apply them
+  to&nbsp;absolute&nbsp;elements. They behave almost exactly the same: other
+  elements don't know about&nbsp;absolute&nbsp;elements, they're affected by the
+  directional properties and&nbsp;z-index. The difference is instead of being
+  positioned relative to the viewport (browser window), they're positioned
+  relative to the nearest element that is not&nbsp;static&nbsp;- so
+  a&nbsp;fixed,&nbsp;absolute, or&nbsp;relative&nbsp;element.
+</p>
+<p>
+  relative&nbsp;elements, on the other hand, behave almost exactly the same as
+  a&nbsp;static&nbsp;element - they are part of the document flow, and simply
+  setting&nbsp;relative&nbsp;to an element will not change its appearance at
+  all. The difference is a&nbsp;relative&nbsp;element&nbsp;<em>can</em>&nbsp;use
+  the directional properties -&nbsp;top,&nbsp;left,&nbsp;right, and&nbsp;bottom.
+</p>
+<p>
+  However, the most common usage of&nbsp;relative&nbsp;and&nbsp;absolute&nbsp;is
+  that a&nbsp;relative&nbsp;element is treated as&nbsp;static, but as
+  an&nbsp;anchor point&nbsp;for some other&nbsp;absolute&nbsp;element.
+</p>
+<p>
+  I'll make an example with a&nbsp;section&nbsp;(red) that has a
+  nested&nbsp;div&nbsp;(blue).
+</p>
+<p>&lt;section&gt;</p>
+<p>section</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>&lt;/section&gt;</p>
+<p>
+  With no positioning applied, the&nbsp;div&nbsp;is contained inside of
+  the&nbsp;section.
+</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/973437fb2fd3a20a41e6e37a67b4f24f/a3bc3/absolute1.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/973437fb2fd3a20a41e6e37a67b4f24f/4d3f1/absolute1.png"
+  /></a>
+</p>
+<p>
+  Now imagine I have a bunch of card elements that are
+  always&nbsp;100px&nbsp;tall, regardless of the content contained within, and I
+  want a button to always exist at the same spot on the bottom right.
+  Using&nbsp;relative&nbsp;and&nbsp;absolute, the&nbsp;div&nbsp;will always be
+  in the same spot on any card.
+</p>
+<p>section {</p>
+<p>position: relative;</p>
+<p>height: 100px;</p>
+<p>}</p>
+<p><br /></p>
+<p>div {</p>
+<p>position: absolute;</p>
+<p>bottom: 15px;</p>
+<p>right: 15px;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/59ad2d1e21bdc78cb2d2852ef0b95d85/e3c01/absolute2.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/59ad2d1e21bdc78cb2d2852ef0b95d85/4d3f1/absolute2.png"
+  /></a>
+</p>
+<p>
+  To summarize, use&nbsp;relative&nbsp;when you want something else to be
+  anchored to an element but you don't want that element itself to move or be
+  affected at all, and use&nbsp;absolute&nbsp;on the element to be anchored. A
+  common usage of this is card-like elements.
+</p>
+<p>
+  This&nbsp;<a
+    href="https://taniarascia.github.io/card/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >card element</a
+  >&nbsp;is an example of absolute coming in handy to make sure they're always
+  the same size but the buttons line up.
+</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/3fe8f91943c60678bd9cc4040f942904/b054d/absolute3.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/3fe8f91943c60678bd9cc4040f942904/4d3f1/absolute3.png"
+  /></a>
+</p>
+<h3><br /></h3>
+<h3>Positioning Reference</h3>
+<p>
+  PositionBehaviorIn Document Flowstaticdefault behavior; elements stack in
+  order and are aware of each otherYesrelativepositioned relative to its
+  original position in the flowYesfixedpositioned relative to the
+  viewportNoabsolutepositioned relative to closest non-static
+  (fixed,&nbsp;relative,&nbsp;absolute) elementNo
+</p>
+<h2><br /></h2>
+<h2>Layouts: Flex</h2>
+<p>
+  The&nbsp;block,&nbsp;inline-block, and&nbsp;inline&nbsp;display types all
+  apply to the element itself.&nbsp;<a
+    href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Flexbox</a
+  >&nbsp;is different, because it applies to elements nested within the one that
+  has&nbsp;display: flex. There are many resources that go deep into Flexbox and
+  everything it's capable of, but I'm just going to tell you the basic stuff you
+  can always do to easily make layouts.
+</p>
+<h3><br /></h3>
+<h3>History lesson</h3>
+<p>
+  In the beginning, HTML documents were basically the same as MS Word documents:
+  you had headings, paragraphs, and the occasional image. People started wanting
+  more advanced layouts, so they began using tables to create their layouts.
+  Since the purpose of tables was (and is) only to display tabular data, the
+  HTML people wrote to create layouts became messier and messier.
+</p>
+<p>
+  Eventually, someone discovered that they could use
+  the&nbsp;float&nbsp;property to move things to the left and right of the page,
+  instead of tables. This made the markup a little cleaner and easier to
+  understand, but again, this was another attempt to mutate something for a
+  purpose it was never designed to do. CSS floats were (and are) for "floating"
+  images in an article to the left or right (like you might see in a magazine),
+  not for creating a layout. Nonetheless, for years we were stuck with
+  the&nbsp;float&nbsp;property to create some semblance of a unique layout
+  without using tables.
+</p>
+<p>
+  Now we have Flexbox and CSS grid for creating layouts, and we basically never
+  have to touch&nbsp;float&nbsp;except for its rare, actual purpose. This
+  doesn't apply if you have to support older versions of Internet Explorer, but
+  if you do, there are more than enough resources to understand how floats were
+  used during this time.
+</p>
+<h3><br /></h3>
+<h3>Creating a flex container</h3>
+<p>
+  We already know that a bunch of default block elements will stack each other:
+</p>
+<p><strong>Stacked elements</strong></p>
+<p><br /></p>
+<p>&lt;section&gt;</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>&lt;/section&gt;</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/43a432e5fae6837eedd07ce19e45e8b7/bcefc/flex1.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/43a432e5fae6837eedd07ce19e45e8b7/4d3f1/flex1.png"
+  /></a>
+</p>
+<p>
+  So how do we get elements to be side-by-side? We can make the outer container
+  a flex container.
+</p>
+<p><strong>Elements in a default flex container</strong></p>
+<p><br /></p>
+<p>&lt;section class="flex-container"&gt;</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>&lt;/section&gt;</p>
+<p>.flex-container {</p>
+<p>display: flex;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/27a6ff7ee91815f02ab2007f7304b61c/3e6fd/flex2.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/27a6ff7ee91815f02ab2007f7304b61c/3e6fd/flex2.png"
+  /></a>
+</p>
+<p>
+  And just like that, all the inner elements are now stacked horizontally in a
+  row. By default, a flex container is set to&nbsp;flex-direction: row. Note
+  that only the first layer of elements will be flex items - elements nested
+  further within them will behave normally. You can also update it
+  to&nbsp;flex-direction: column&nbsp;and the items will be stacked vertically,
+  as they were originally.
+</p>
+<p>Here are a few cool things flex can do:</p>
+<ul>
+  <li>vertically align elements with ease</li>
+  <li>space items apart or group them together easily</li>
+  <li>create repeating grids</li>
+</ul>
+<h3><br /></h3>
+<h3>Alignment: create a navigation bar with flex</h3>
+<p>
+  Let's make a practical example to demonstrate some of what flex is capable of:
+  a navigation bar. Here's what we want it to look like:
+</p>
+<ul>
+  <li>brand name to the left</li>
+  <li>nav links to the right</li>
+  <li>all items vertically centered</li>
+</ul>
+<p><strong>navbar.html</strong></p>
+<p><br /></p>
+<p>&lt;nav&gt;</p>
+<p>&lt;div&gt;Brand name&lt;/div&gt;</p>
+<p>&lt;div&gt;</p>
+<p>&lt;a href="#!"&gt;About&lt;/a&gt;</p>
+<p>&lt;a href="#!"&gt;Contact&lt;/a&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/nav&gt;</p>
+<p><strong>navbar.css</strong></p>
+<p><br /></p>
+<p>nav {</p>
+<p>background: blue;</p>
+<p>height: 80px;</p>
+<p>}</p>
+<p>Without any regard to layout applied, here's how it looks.</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/de0948627fa57c76e6ca3b432b25cfcb/034de/flex3.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/de0948627fa57c76e6ca3b432b25cfcb/4d3f1/flex3.png"
+  /></a>
+</p>
+<p>
+  We'll make the navbar flex, so the brand name and nav links will be
+  horizontal.
+</p>
+<p>nav {</p>
+<p>display: flex;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/09836a945de7c363b1ed1d1654b6e0f7/ccc27/flex4.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/09836a945de7c363b1ed1d1654b6e0f7/4d3f1/flex4.png"
+  /></a>
+</p>
+<p>
+  Now we want everything to be vertically aligned. With&nbsp;align-items:
+  center, we can vertically align items within a flex container.
+</p>
+<p>nav {</p>
+<p>display: flex;</p>
+<p>align-items: center;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/6f63d4fa0cbb54c0e32f0303f36aea9f/8f526/flex5.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/6f63d4fa0cbb54c0e32f0303f36aea9f/4d3f1/flex5.png"
+  /></a>
+</p>
+<p>
+  Now we want the brand and links to be on opposite ends of the navbar.
+  With&nbsp;justify-content: space-between, we can tell the items in the flex
+  container to be spaced apart as far as possible.
+</p>
+<p>nav {</p>
+<p>display: flex;</p>
+<p>align-items: center;</p>
+<p>justify-content: space-between;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/b8265e29edd288046dbf5bec1fce2b14/ca44b/flex6.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/b8265e29edd288046dbf5bec1fce2b14/4d3f1/flex6.png"
+  /></a>
+</p>
+<p>Then just add a little padding and you have an acceptable navbar.</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/c4f8c5290a52b99b3208d2b1c0d9999f/5edb4/flex7.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/c4f8c5290a52b99b3208d2b1c0d9999f/4d3f1/flex7.png"
+  /></a>
+</p>
+<p>
+  I believe without knowing anything else about flex, you can get pretty far
+  with just those properties. When thinking about any of the other values that
+  can be applied to flex alignment, just think about the navigation bar. The
+  brand and group of links are two items in a flex row.
+</p>
+<ul>
+  <li>
+    align-items&nbsp;refers to the&nbsp;vertical
+    alignment:&nbsp;flex-start&nbsp;would be the top,&nbsp;flex-end&nbsp;would
+    be the bottom, and&nbsp;center&nbsp;is vertically aligned.
+  </li>
+  <li>
+    justify-content&nbsp;refers to the&nbsp;horizontal
+    spacing:&nbsp;start&nbsp;would be all items to the left,&nbsp;end&nbsp;would
+    be all items to the right,&nbsp;center&nbsp;is everything in the middle,
+    and&nbsp;space-between&nbsp;is everything equally spaced apart.
+  </li>
+</ul>
+<blockquote>
+  Note:&nbsp;Flex is also capable of reversing rows and columns. In addition
+  to&nbsp;flex-direction: row, and&nbsp;flex-direction: column, there is
+  also&nbsp;row-reverse&nbsp;and&nbsp;column-reverse. This would reverse the
+  expectation of&nbsp;align-items&nbsp;and&nbsp;justify-content&nbsp;as well.
+  For example,&nbsp;justify-content: start&nbsp;would be on the right of
+  a&nbsp;row-reverse&nbsp;flex container.
+</blockquote>
+<p>
+  Further reading:&nbsp;<a
+    href="https://flexboxfroggy.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Flexbox Froggy</a
+  >&nbsp;is a game for learning and practicing Flexbox that might come in handy.
+</p>
+<h3><br /></h3>
+<h3>Flex Container Reference</h3>
+<p>
+  PropertyValuesflex-directionrow,&nbsp;column,&nbsp;row-reverse,&nbsp;column-reverseflex-wrapwrap,&nbsp;nowrapalign-itemsflex-start,&nbsp;flex-end,&nbsp;center,&nbsp;stretch,&nbsp;baselinejustify-contentstart,&nbsp;center,&nbsp;end,&nbsp;space-between,&nbsp;space-around,&nbsp;space-evenly
+</p>
+<h3><br /></h3>
+<h3>Wrapping: Create a repeating grid</h3>
+<p>
+  Often, you might have a bunch of cards or images in a gallery that should be
+  in a repeating grid. By default, with a flex container, the horizontal items
+  will continue forever horizontally.
+</p>
+<p>&lt;section class="flex-container"&gt;</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>&lt;div&gt;div&lt;/div&gt;</p>
+<p>...</p>
+<p>&lt;/section&gt;</p>
+<p>.flex-container {</p>
+<p>display: flex;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/84a798c57ae38f23b7b2c907735e4b9a/7449d/repeating.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/84a798c57ae38f23b7b2c907735e4b9a/4d3f1/repeating.png"
+  /></a>
+</p>
+<p>
+  We can make the grid repeat onto as many lines as necessary
+  with&nbsp;flex-wrap.
+</p>
+<p>.flex-container {</p>
+<p>display: flex;</p>
+<p>flex-wrap: wrap;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/f8645a3bb9f30932ad03d8812e543ebe/0bd10/repeating2.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/f8645a3bb9f30932ad03d8812e543ebe/0bd10/repeating2.png"
+  /></a>
+</p>
+<p>
+  This is great. But wait...it only works when the elements have no content.
+  What if I fill them with a lot of text?
+</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/5729fd8427ca5c913f56b8d51320cf82/7bc83/repeating3.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/5729fd8427ca5c913f56b8d51320cf82/4d3f1/repeating3.png"
+  /></a>
+</p>
+<p>
+  Now this seems pretty useless. But with a tiny bit of flex magic, we can
+  transform it back to a grid:
+</p>
+<p>div {</p>
+<p>flex: 1;</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/809a1c0a66774f37aa40f508203140b3/1e817/repeating4.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/809a1c0a66774f37aa40f508203140b3/4d3f1/repeating4.png"
+  /></a>
+</p>
+<p>
+  So what does&nbsp;flex: 1&nbsp;do? It tells all flex items in a container, if
+  they all have it applied, to automatically have an equal height and
+  width.&nbsp;flex&nbsp;is another shorthand for three
+  properties:&nbsp;flex-grow,&nbsp;flex-shrink, and&nbsp;flex-basis.
+</p>
+<p>.element {</p>
+<p>flex: 1;</p>
+<p>}</p>
+<p><br /></p>
+<p>/* is the same as */</p>
+<p><br /></p>
+<p>.element {</p>
+<p>flex-grow: 1;</p>
+<p>flex-shrink: 1;</p>
+<p>flex-basis: 0%;</p>
+<p>}</p>
+<p><br /></p>
+<p>/* flex shorthand */</p>
+<p>.element {</p>
+<p>flex: flex-grow flex-shrink flex-basis;</p>
+<p>}</p>
+<p>
+  Two flex elements set to&nbsp;flex: 1&nbsp;will both be 50% of the width of
+  the container. Three will both be 33.3333% of the width of the container, and
+  so on.
+</p>
+<p>
+  But this is still kind of random. Keep adding more divs, and once it decides
+  that no more can fit, and to wrap to the next line (if&nbsp;flex-wrap&nbsp;is
+  set). Then the element that gets wrapped will now take up 100% of the row.
+</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/3b24451a667d7608520ca87a29560bf7/5e575/repeating5.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/3b24451a667d7608520ca87a29560bf7/4d3f1/repeating5.png"
+  /></a>
+</p>
+<p>
+  What if you always want each element to take up 1/3 of the available
+  horizontal space, regardless of how many flex items there are and what content
+  they contain? You can set the&nbsp;flex-basis&nbsp;only, to the width you
+  desire.
+</p>
+<p>div {</p>
+<p>flex: 0 0 33.3333%;</p>
+<p>}</p>
+<p>
+  Remember the Box Model, from earlier? If you have any padding on your flex
+  items, you&nbsp;<em>must</em>&nbsp;have&nbsp;box-sizing: border-box&nbsp;for
+  the percentage to be calculated correctly. If that's taken care of, it will
+  correctly calculate each flex item to the proper 33.33333% width of the
+  screen.
+</p>
+<p>
+  But there is one more consideration - if you want gutters in your grid, you'll
+  use margins to separate each item. Since the margins are calculated
+  separately, you'll need to subtract the outer margins from
+  the&nbsp;flex-basis. In this example, there's an extra&nbsp;10px&nbsp;margin
+  on both sides, so we'll subtract&nbsp;20px.
+</p>
+<p>div {</p>
+<p>padding: 15px;</p>
+<p>margin: 10px;</p>
+<p>flex: 0 0 calc(33.3333% - 20px);</p>
+<p>}</p>
+<p>
+  <a
+    href="https://www.taniarascia.com/static/aba4e0120fdda47f818c67842e15b9cc/fb323/repeating6.png"
+    rel="noopener noreferrer"
+    target="_blank"
+    ><img
+      src="https://www.taniarascia.com/static/aba4e0120fdda47f818c67842e15b9cc/4d3f1/repeating6.png"
+  /></a>
+</p>
+<p>
+  You can easily make simple grids by either setting
+  the&nbsp;flex-basis&nbsp;(setting one to&nbsp;25%&nbsp;and one to 75%, for
+  example) or with varying&nbsp;flex-grow/flex-shrink&nbsp;combinations (flex:
+  1&nbsp;on one element and&nbsp;flex: 2&nbsp;on another element would result in
+  a&nbsp;33.3-%&nbsp;/&nbsp;66.6-%&nbsp;split, respectively).
+</p>
+<h3><br /></h3>
+<h3>Flex Property Reference</h3>
+<p>
+  PropertyDescriptionflex-growDetermines how much a flex item should grow if
+  there's space availableflex-shrinkDetermines how much a flex item should
+  shrink if there's not space availableflex-basisDefines initial size of flex
+  item
+</p>
+<p>
+  Finally, there is also an&nbsp;order&nbsp;property, in which you can rearrange
+  the order of flex items.
+</p>
+<h2><br /></h2>
+<h2>Responsive: Media Queries</h2>
+<p>
+  Use&nbsp;<a
+    href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries"
+    rel="noopener noreferrer"
+    target="_blank"
+    >media queries</a
+  >&nbsp;to make your websites responsive, or adaptive to multiple screen sizes.
+  With media queries, you tell CSS to only apply on screen
+  sizes&nbsp;<em>below</em>&nbsp;a certain width
+  (with&nbsp;max-width&nbsp;queries) or&nbsp;<em>above</em>&nbsp;a certain width
+  (with&nbsp;min-width&nbsp;queries).
+</p>
+<p>@media screen and (min-width: 800px) {</p>
+<p>/* applies styles to any device screen sizes above 800px wide */</p>
+<p>}</p>
+<p>@media screen and (max-width: 800px) {</p>
+<p>/* applies styles to any device screen sizes below 800px wide */</p>
+<p>}</p>
+<p>
+  If you've ever heard the term&nbsp;mobile-first, this refers to building a
+  website for mobile first, and creating&nbsp;min-width&nbsp;media queries as
+  necessary as the screen sizes go up.
+</p>
+<p>/* Mobile first styles go here */</p>
+<p><br /></p>
+<p>@media screen and (min-width: 800px) {</p>
+<p>/* Desktop styles go here */</p>
+<p>}</p>
+<p>
+  It is much easier to design a website mobile-first and scale up as needed,
+  than trying to take a website that is only optimized for desktop and making it
+  mobile-friendly with&nbsp;min-width&nbsp;media queries. If you're doing it
+  from scratch, I would recommend starting mobile first and
+  using&nbsp;min-width&nbsp;queries, but if you have to quickly make a desktop
+  site work for mobile, it's easier and faster to
+  add&nbsp;max-width&nbsp;queries here and there as needed.
+</p>
+<p>
+  All CSS frameworks deal with these different queries, or responsive
+  breakpoints, slightly differently. If we look at&nbsp;<a
+    href="https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Bootstrap's responsive breakpoints</a
+  >, we can see they have five breakpoints, from extra small to extra large.
+  Personally, I find that having one breakpoint (no breakpoint for mobile, and
+  one for desktop) or two breakpoints (no breakpoint for mobile, one for tablet,
+  and one for desktop) takes care of most of my responsive needs.
+</p>
+<p>
+  Note that&nbsp;@media&nbsp;can be nested within a selector. In this example,
+  an&nbsp;h1&nbsp;has font size of&nbsp;28px&nbsp;by default,
+  but&nbsp;32px&nbsp;on larger screen sizes.
+</p>
+<p>h1 {</p>
+<p>font-size: 28px;</p>
+<p><br /></p>
+<p>@media screen and (min-width: 800px) {</p>
+<p>font-size: 32px;</p>
+<p>}</p>
+<p>}</p>
+<h2><br /></h2>
+<h2>Other Considerations</h2>
+<p>
+  This article is getting incredibly long, and there's still plenty I haven't
+  covered. Here's a few quick answers and additional resources to the holes in
+  my attempt to cover everything at once.
+</p>
+<p>
+  To get an idea of how I generally like to style my CSS, take a look at&nbsp;<a
+    href="https://taniarascia.github.io/primitive/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Primitive CSS</a
+  >, the CSS/Sass framework I designed a few years ago, which contains a clean
+  Sass setup and sensible defaults. Creating your own CSS framework and grid is
+  a fun, challenging way to really learn CSS, and I highly recommend it!
+</p>
+<h3><br /></h3>
+<h3>When should I style ids, classes, or tags?</h3>
+<p>
+  My rules are as follows: IDs are exclusively used for JavaScript purposes. To
+  easily target an individual element with JavaScript, you can use an ID, and
+  know that it has no affect on the style. If you wish, you could also "scope"
+  sections of content by nesting everything in an ID, though I don't personally
+  do that.
+</p>
+<p>
+  For tags,&nbsp;<em>never</em>&nbsp;style elements
+  like&nbsp;main,&nbsp;article,&nbsp;div,&nbsp;section,&nbsp;aside, etc. You
+  should always feel secure that these elements will be unstyled and only denote
+  the type of content they contain. If you wish to add styling to them, create
+  classes like&nbsp;.container. I usually give some default styling
+  to&nbsp;h1&nbsp;through&nbsp;h5,&nbsp;p,&nbsp;ul,&nbsp;ol,&nbsp;li,&nbsp;a,
+  and&nbsp;table.
+</p>
+<p>
+  For most other styling, I use classes. Try to make classes "semantic" by
+  describing what they are, not what they do. For example, having a class
+  called&nbsp;.app-sidebar&nbsp;would be acceptable, but
+  having&nbsp;.bg-white,&nbsp;.blue-border,&nbsp;.large-text&nbsp;ultimately
+  becomes difficult to maintain. (A few helper classes, such as the
+  Bootstrap&nbsp;<a
+    href="https://getbootstrap.com/docs/4.3/utilities/spacing/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >spacing utilities</a
+  >&nbsp;can come in handy).
+</p>
+<p>
+  Further reading:&nbsp;<a
+    href="https://css-tricks.com/the-difference-between-id-and-class/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >The Difference Between ID and Class</a
+  >
+</p>
+<p><br /></p>
+<h3><br /></h3>
+<h3>What should I use for font size - px vs. em vs. rem?</h3>
+<p>
+  I use pixels (px) on borders, and&nbsp;rem&nbsp;on all font sizes, padding,
+  and margins. I don't use&nbsp;em&nbsp;at all, as using it has more possible
+  unintended consequences on nested elements (although I used&nbsp;px&nbsp;on
+  all examples throughout this resource for simplicity and familiarity).
+</p>
+<p>
+  Further reading:&nbsp;<a
+    href="https://www.element84.com/blog/responsive-typography"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Responsive Typography: rem, em, and px</a
+  >,&nbsp;<a
+    href="https://webdesign.tutsplus.com/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Comprehensive Guide: When to Use Em vs Rem</a
+  >
+</p>
+<h3><br /></h3>
+<h3>What about Sass? Or LESS?</h3>
+<p>
+  I prefer to use Sass for all CSS preprocessing, much like the popular CSS
+  framework,&nbsp;<a
+    href="https://getbootstrap.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Bootstrap</a
+  >. It also works fantastically out-of-the-box with the JavaScript
+  framework,&nbsp;<a
+    href="https://vuex.vuejs.org/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Vue</a
+  >. LESS is generally less popular and I don't prefer it, but&nbsp;<a
+    href="https://ant.design/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Ant Design</a
+  >&nbsp;and&nbsp;<a
+    href="https://semantic-ui.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Semantic UI</a
+  >&nbsp;do. You can also use tools like&nbsp;<a
+    href="https://postcss.org/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >PostCSS</a
+  >&nbsp;to compile the latest CSS to something most browsers can understand
+  (much like Babel with ES6).
+</p>
+<p>
+  Further reading:&nbsp;<a
+    href="https://www.taniarascia.com/learn-sass-now/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Learn Sass Now: A Guide to Installing and Understanding Sass</a
+  >
+</p>
+<h3><br /></h3>
+<h3>What about prefixes?</h3>
+<p>
+  Browsers have been known to have inconsistencies with each other regarding
+  CSS, and you might see&nbsp;-webkit,&nbsp;-moz,&nbsp;-ms,
+  and&nbsp;-o&nbsp;prefixes for various properties that might not work on all
+  browsers, or may have been experimental in some earlier browsers, like so:
+</p>
+<p>.flex {</p>
+<p>display: -webkit-box;</p>
+<p>display: -moz-box;</p>
+<p>display: -ms-flexbox;</p>
+<p>display: -webkit-flex;</p>
+<p>display: flex;</p>
+<p>}</p>
+<p>
+  Use something like&nbsp;<a
+    href="https://github.com/postcss/autoprefixer"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Autoprefixer</a
+  >&nbsp;with&nbsp;<a
+    href="https://webpack.js.org/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Webpack</a
+  >,&nbsp;<a
+    href="https://gulpjs.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Gulp</a
+  >&nbsp;or&nbsp;<a
+    href="https://gruntjs.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Grunt</a
+  >, whatever you may be using for bundling or task running. You should never
+  have to write out or remember prefixes.
+</p>
+<h3><br /></h3>
+<h3>What about CSS grid?</h3>
+<p>
+  I'll be honest, almost every time I create something in CSS grid, I end up
+  converting it to Flexbox because I find it easier to work with and more
+  intuitive. I didn't cover grid in this article because it's too big of a
+  subject to just tack on at the end. See the further reading for many examples
+  you can play around with.
+</p>
+<p>
+  Further reading:&nbsp;<a
+    href="https://gridbyexample.com/examples/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Grid by Example - the examples</a
+  >
+</p>
+<p><br /></p>
+<h3><br /></h3>
+<h3>BEM, OOCSS, SMACSS...how should I structure my CSS?</h3>
+<p>
+  A lot of people have come up with a lot of solutions on how to structure your
+  CSS -&nbsp;<a
+    href="http://getbem.com/introduction/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >BEM</a
+  >,&nbsp;<a href="http://oocss.org/" rel="noopener noreferrer" target="_blank"
+    >OOCSS</a
+  >,&nbsp;<a href="http://smacss.com/" rel="noopener noreferrer" target="_blank"
+    >SMACSS</a
+  >...BEM (Block-Element-Modifier) seems to be one of the more popular and
+  prevailing. I personally prefer not to use any of these in specific (and I
+  don't like using underlines in CSS at all).
+</p>
+<h3><br /></h3>
+<h3>What else?</h3>
+<p>
+  Use numbers (as percents) on&nbsp;line-height. I prefer&nbsp;line-height:
+  1.2&nbsp;for headings, and&nbsp;line-height: 1.6&nbsp;for font (using
+  the&nbsp;<a
+    href="https://pearsonified.com/golden-ratio-typography-intro/"
+    rel="noopener noreferrer"
+    target="_blank"
+    >Golden Ratio</a
+  >).
+</p>
+<p>
+  You can use the pseudo class/function&nbsp;:not()&nbsp;to target every element
+  that doesn't match what you input. Here's a useful one for ensuring all
+  headings, except for the first one in a section, have some extra spacing.
+</p>
+<p>h1:not(:first-child),</p>
+<p>h2:not(:first-child),</p>
+<p>h3:not(:first-child) {</p>
+<p>margin-top: 2.5rem;</p>
+<p>}</p>
+<p>
+  Always have a&nbsp;.container&nbsp;element handy, that looks something like
+  this (max-width&nbsp;and&nbsp;padding&nbsp;can be changed up to whatever you
+  want).
+</p>
+<p>.container {</p>
+<p>max-width: 1200px;</p>
+<p>padding: 0 15px;</p>
+<p>margin-left: auto;</p>
+<p>margin-right: auto;</p>
+<p>}</p>
+<p>
+  This will make your content pretty responsive by default. You'll have padding
+  around the content on mobile, and the content won't expand too far on desktop
+  screens, and will be horizontally centered (this is what happens
+  when&nbsp;auto&nbsp;is applied to both margins).
+</p>
+<p>
+  Don't spread text out too wide. Think about a page in a book; you wouldn't
+  want one page to be too wide, or reading it is oddly stressful. I like to make
+  a small container for text-only, to ensure articles and text aren't too wide.
+</p>
+<p>.small-container {</p>
+<p>max-width: 800px;</p>
+<p>padding: 0 15px;</p>
+<p>margin-left: auto;</p>
+<p>margin-right: auto;</p>
+<p>}</p>
+<p>
+  Use&nbsp;max-width: 100%&nbsp;and&nbsp;height: auto&nbsp;for responsive
+  images. This way, the image will retain it's original aspect ratio, but resize
+  according to the width of its container.
+</p>
+<p>img.responsive-image {</p>
+<p>max-width: 100%;</p>
+<p>height: auto;</p>
+<p>}</p>
+<p>
+  Finally, I didn't get into transitions and animations, but I think those are
+  overall less important than the concepts I laid out here today.
+</p>
+<h2><br /></h2>
+<h2>Conclusion</h2>
+<p>
+  I hope this was a useful introduction to all things CSS, from the fundamentals
+  of selectors and specificity, to layouts and positioning. No matter how much
+  you read about and study CSS, I don't think it can feel natural without a lot
+  of practice. I recommend looking at some designs of websites you like and
+  trying to replicate them without looking at the source code.
+</p>
+<p><br /></p>

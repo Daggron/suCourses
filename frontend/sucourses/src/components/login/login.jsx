@@ -9,7 +9,7 @@ import AlertBox from './AlertBox';
 export default function Login() {
     const [email , setEmail ] = React.useState("");
     const [password , setPassword] = React.useState("");
-    const [success , setSuccess] = React.useContext(MyContext);
+    const [success ] = React.useContext(MyContext);
     //eslint-disable-next-line
     const [user , setUser] = React.useContext(MyContext); 
     const [open , setOpen] = React.useState(false);
@@ -32,19 +32,21 @@ export default function Login() {
             email : email,
             password : password
         })
-        setSuccess(data.data.success);
+        console.log(data.data)
+        success.setSuccess(data.data.success);
         
 
         if(!data.data.success){
             setOpen(true);
         }
         else{
-            setUser(data.data.user);
-            localStorage.setItem('user',data.data.user);
+            success.setUser(data.data.user);
+            success.setToken(data.data.token);
+            localStorage.setItem('token' , data.data.token);
         }
     }
 
-    if(success){
+    if(success.success){
         return(
             <Redirect to="/"/>
         )

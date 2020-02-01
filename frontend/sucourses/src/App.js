@@ -9,6 +9,8 @@ import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import Loadable from 'react-loadable';
 import Loading from './components/Loading';
 import { MyContextProvider } from './context';
+import Myblogs from './components/blogs/myblogs/Myblogs';
+
 
 
 const Login = Loadable({
@@ -67,6 +69,8 @@ const Editor = Loadable({
   loading : Loading
 })
 
+
+
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: "light")');
 
@@ -100,6 +104,7 @@ function App() {
                 <Route exact path="/articles" component={Blogs} />
                 <Route path="/articles/view/:id" component={SingleQuestion} />
                 <Route path="/editor" component={Editor} />
+                <Router path="/data/articles" component={Myblogs} />
                 <Route path="*" component={Error} />
               </Switch>
             </Router>

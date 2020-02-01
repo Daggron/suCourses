@@ -1,11 +1,9 @@
 import React from 'react';
-import 'medium-editor/dist/css/medium-editor.css';
-import 'medium-editor/dist/css/themes/default.css';
-
-import Editor from 'react-medium-editor';
 import { Typography, Button, TextField } from '@material-ui/core';
 import Axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 export default function EditorComponent() {
 
@@ -16,6 +14,7 @@ export default function EditorComponent() {
     const [title , setTitle] = React.useState("");
 
     const handleChange = e =>{
+        console.log(e);
         setquestion(e);
     }
 
@@ -25,7 +24,7 @@ export default function EditorComponent() {
 
     const handleSubmit =() =>{
         console.log(question);
-        Axios.post('/user/blog',{question:question,title : title})
+        Axios.post('/user/blog',{question:question,title : title , token : user})
         .then(res=>{
             console.log(res.data);
         })
@@ -34,8 +33,25 @@ export default function EditorComponent() {
         })
     }
 
+    const modules = {
+        toolbar: [
+          [{ 'header': [1, 2, false] }],
+          ['bold', 'italic', 'underline','strike', 'blockquote'],
+          [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+          ['link', 'image'],
+          ['clean']
+        ],
+      }
+    
+     const  formats = [
+        'header',
+        'bold', 'italic', 'underline', 'strike', 'blockquote',
+        'list', 'bullet', 'indent',
+        'link', 'image'
+      ]
+
     React.useEffect(()=>{
-        let data = localStorage.getItem('user');
+        let data = localStorage.getItem('token');
         setUser(data);
     },[])
 
@@ -53,15 +69,23 @@ export default function EditorComponent() {
                 component="outlined"
                 helperText="Enter Title Of The Blog"
                 label="Title"
-            onChange={handleTitle}/>
+                onChange={handleTitle}
+                />
             <br/>
             <Typography style={{marginTop: 40}} variant="h5" component="h3">
                 Type the blog below
             </Typography>
-            <Editor 
-             options={{toolbar: {buttons: ['bold', 'italic', 'underline' , 'h1' , 'h2' ,'h3' ,'h4' ,'h5' ,'h6' ,'anchor']}}}
-            onChange={handleChange}
-            />
+
+            <div>
+            <ReactQuill theme="snow"
+                    modules={modules}
+                    formats={formats}
+                    style={{height : 500 , width : window.innerWidth }}
+                    onChange={handleChange}
+            >
+            </ReactQuill>
+            </div>
+            
             <Button onClick={handleSubmit} color="primary" variant="contained">
                 Save
             </Button>

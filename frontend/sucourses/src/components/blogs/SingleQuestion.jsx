@@ -15,6 +15,7 @@ export default function SingleQuestion(props) {
         .then(data=>{
             setBlog(data.data.blog);
             setUploader(data.data.blog.user);
+            console.log(data.data.blog)
 
         })
         .catch(err=>{
@@ -22,19 +23,22 @@ export default function SingleQuestion(props) {
         })
         //eslint-disable-next-line
     },[])
+
     return (
-        <div>
-            <Typography component="h1" variant="h3">
+        <div style={{width : 900 , height : "auto" , fontSize : "20px" , margin : "auto" , textAlign : "left" , textDecoration : "none" , background : "#f5f5f5"}}>
+            <Typography component="h1" variant="h3" style={{margin : 20}}>
                 {blog.title}
             </Typography>
             <Typography>
-                <sub style={{marginTop : 20}}>
+                <sub style={{marginTop : 20 ,margin : 20 , color :"red" }} >
                     by {uploader.username}
                 </sub>
             </Typography>
-            <Typography component="h5">
+           
+            <div style={{margin : 10}}>
                  <div dangerouslySetInnerHTML={{__html : blog.question}} />
-            </Typography>
+            </div>
+            
            
         </div>
     )

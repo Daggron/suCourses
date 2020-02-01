@@ -1,20 +1,21 @@
 import React from 'react'
 import Axios from 'axios';
-import Blog from './Blog';
+import Blog from '../Blog';
 
-export default function Blogs() {
-
+export default function Myblogs() {
+    
     const [question , getQuestions ] = React.useState([]);
 
     React.useEffect(()=>{
         Axios.get('http://localhost:5000/user/blog')
         .then(res=>{
-            // console.log(res.data.blog);
+            console.log(res.data.blog);
             getQuestions(res.data.blog);
         })
         .catch(err=>{
             alert (err);
         })
+        console.log('I am workign')
     },[])
 
     if(question.length!==0){
